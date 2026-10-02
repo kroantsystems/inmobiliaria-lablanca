@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Problem.Title.400" xml:space="preserve"><value>Bad request</value></data>
+  <data name="Problem.Title.401" xml:space="preserve"><value>Unauthorized</value></data>
+  <data name="Problem.Title.403" xml:space="preserve"><value>Forbidden</value></data>
+  <data name="Problem.Title.404" xml:space="preserve"><value>Not found</value></data>
+  <data name="Problem.Title.405" xml:space="preserve"><value>Method not allowed</value></data>
+  <data name="Problem.Title.409" xml:space="preserve"><value>Conflict</value></data>
+  <data name="Problem.Title.413" xml:space="preserve"><value>Content too large</value></data>
+  <data name="Problem.Title.415" xml:space="preserve"><value>Unsupported media type</value></data>
+  <data name="Problem.Title.429" xml:space="preserve"><value>Too many requests</value></data>
+  <data name="Problem.Title.500" xml:space="preserve"><value>Internal server error</value></data>
+  <data name="Problem.Title.503" xml:space="preserve"><value>Service unavailable</value></data>
+  <data name="Error.Unexpected" xml:space="preserve"><value>An unexpected error occurred. Please try again later.</value></data>
+  <data name="Error.Validation" xml:space="preserve"><value>One or more fields are invalid.</value></data>
+  <data name="Error.NotFound" xml:space="preserve"><value>The requested resource was not found.</value></data>
+  <data name="Error.Unauthorized" xml:space="preserve"><value>Authentication is required.</value></data>
+  <data name="Error.Forbidden" xml:space="preserve"><value>You do not have permission to perform this action.</value></data>
+  <data name="Error.TooManyRequests" xml:space="preserve"><value>Too many requests. Please wait a moment and try again.</value></data>
+</root>

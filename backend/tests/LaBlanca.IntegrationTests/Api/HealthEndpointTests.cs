@@ -9,36 +9,52 @@ namespace LaBlanca.IntegrationTests.Api;
 [Collection(ApiCollection.Name)]
 public class HealthEndpointTests(ApiFactory factory)
 {
-    [Fact]
-    public async Task Health_returns_healthy_when_database_is_reachable()
-    {
-        var client = factory.CreateClient();
+    private const string UnreachableDatabase = "Host=127.0.0.1;Port=1;Database=lablanca;Username=postgres;Password=postgres;Timeout=2";
 
-        var response = await client.GetAsync("/health");
+    [Theory]
+    [InlineData("/health")]
+    [InlineData("/health/live")]
+    [InlineData("/health/ready")]
+    public async Task Health_endpoints_return_healthy_when_dependencies_are_available(string path)
+    {
+        var response = await factory.CreateClient().GetAsync(path);
 
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var body = await response.Content.ReadFromJsonAsync<HealthResponse>();
-        body!.Status.Should().Be("Healthy");
+        (await response.Content.ReadFromJsonAsync<HealthResponse>())!.Status.Should().Be("Healthy");
     }
 
     [Fact]
-    public async Task Health_returns_unhealthy_when_database_is_unreachable()
+    public async Task Database_down_makes_health_and_ready_unhealthy_but_live_ok()
     {
         await using var unreachable = new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
-        {
-            builder.UseEnvironment("Testing");
-            builder.UseSetting(
-                "ConnectionStrings:Default",
-                "Host=127.0.0.1;Port=1;Database=lablanca;Username=postgres;Password=postgres;Timeout=2");
-        });
+            builder.ApplyDefaults(UnreachableDatabase, factory.StorageRoot));
         var client = unreachable.CreateClient();
 
-        var response = await client.GetAsync("/health");
-
-        response.StatusCode.Should().Be(HttpStatusCode.ServiceUnavailable);
-        var body = await response.Content.ReadFromJsonAsync<HealthResponse>();
-        body!.Status.Should().Be("Unhealthy");
+        (await client.GetAsync("/health")).StatusCode.Should().Be(HttpStatusCode.ServiceUnavailable);
+        var ready = await client.GetAsync("/health/ready");
+        ready.StatusCode.Should().Be(HttpStatusCode.ServiceUnavailable);
+        (await ready.Content.ReadFromJsonAsync<HealthResponse>())!.Checks["database"].Should().Be("Unhealthy");
+        (await client.GetAsync("/health/live")).StatusCode.Should().Be(HttpStatusCode.OK);
     }
 
-    private sealed record HealthResponse(string Status);
+    [Fact]
+    public async Task Unwritable_storage_makes_ready_unhealthy()
+    {
+        var file = Path.GetTempFileName();
+        try
+        {
+            await using var broken = factory.WithWebHostBuilder(b => b.UseSetting("Storage:RootPath", Path.Combine(file, "uploads")));
+
+            var response = await broken.CreateClient().GetAsync("/health/ready");
+
+            response.StatusCode.Should().Be(HttpStatusCode.ServiceUnavailable);
+            (await response.Content.ReadFromJsonAsync<HealthResponse>())!.Checks["storage"].Should().Be("Unhealthy");
+        }
+        finally
+        {
+            File.Delete(file);
+        }
+    }
+
+    private sealed record HealthResponse(string Status, Dictionary<string, string> Checks);
 }

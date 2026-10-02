@@ -21,19 +21,19 @@
 
 ## 3. Plataforma da API (cross-cutting)
 
-- [ ] 3.1 Migrar `Program.cs` de Minimal APIs para Controllers (`AddControllers`, `[ApiController]`), mantendo OpenAPI só em Development
-- [ ] 3.2 (TDD) Middleware global de exceções em `LaBlanca.Shared` com Problem Details (400 validação, 401, 403, 404, 409, 429, 500 sem detalhes fora de Development, `traceId`) — spec `api-platform`
-- [ ] 3.3 (TDD) `Messages.resx` (pt neutro), `Messages.es.resx`, `Messages.en.resx`, `Messages.gn.resx` (inicialmente com textos em espanhol); teste de paridade de chaves; `PredefinedCulturesOnly=false` e teste de `CultureInfo("gn")`
-- [ ] 3.4 (TDD) `RequestLocalization` com `pt` (padrão), `es`, `en`, `gn` lendo `Accept-Language`; teste de integração de mensagem de validação em espanhol e fallback para `fr`
-- [ ] 3.5 Configurar Serilog (console + arquivo rotativo, enrichers de `traceId`), `UseSerilogRequestLogging` e política que remove propriedades `Password`, `CurrentPassword`, `NewPassword`, `Token`
-- [ ] 3.6 (TDD) Marcadores `ICommand`/`IQuery`, `LoggingBehavior`, `ValidationBehavior` e `TransactionBehavior` (rollback em exceção, sem transação em Query)
-- [ ] 3.7 Registrar MediatR e FluentValidation (assembly scan); mapeamento manual com `ToDto()` por feature, cada um com teste de unidade (TDD) ao ser criado
-- [ ] 3.8 (TDD) Política de autorização padrão (`FallbackPolicy`), constantes de permissões e políticas por permissão; teste que enumera endpoints e falha se algum fora da lista pública não exigir autenticação
-- [ ] 3.9 (TDD) Rate limiting por IP (`login` 5/min, `public-forms` 10/h, `analytics` 120/min) com resposta 429 em Problem Details; `ForwardedHeaders` configurável
-- [ ] 3.10 (TDD) Health checks `/health`, `/health/live` e `/health/ready` (banco + escrita na pasta de armazenamento)
-- [ ] 3.11 CORS com `AllowCredentials` só para `Cors:AllowedOrigins`; (TDD) teste de origem permitida e negada
-- [ ] 3.12 (TDD) Validador de inicialização: em `Production` exige `SSL Mode` `Require`/`VerifyCA`/`VerifyFull`, chave JWT ≥ 32 bytes e segredo de revalidação; nunca aplica migrações na inicialização em `Production` (em `Development` aplicar automaticamente é opcional via configuração)
-- [ ] 3.13 Commit da fase
+- [x] 3.1 Migrar `Program.cs` de Minimal APIs para Controllers (`AddControllers`, `[ApiController]`), mantendo OpenAPI só em Development
+- [x] 3.2 (TDD) Middleware global de exceções em `LaBlanca.Shared` com Problem Details (400 validação, 401, 403, 404, 409, 429, 500 sem detalhes fora de Development, `traceId`) — spec `api-platform`
+- [x] 3.3 (TDD) `Messages.resx` (pt neutro), `Messages.es.resx`, `Messages.en.resx`, `Messages.gn.resx` (inicialmente com textos em espanhol); teste de paridade de chaves; `PredefinedCulturesOnly=false` e teste de `CultureInfo("gn")`
+- [x] 3.4 (TDD) `RequestLocalization` com `pt` (padrão), `es`, `en`, `gn` lendo `Accept-Language`; teste de integração de mensagem de validação em espanhol e fallback para `fr`
+- [x] 3.5 Configurar Serilog (console + arquivo rotativo, enrichers de `traceId`), `UseSerilogRequestLogging` sem logar conteúdo de Commands/Queries (só nome e duração, coberto por teste), de modo que senhas e tokens nunca chegam ao log
+- [x] 3.6 (TDD) Marcadores `ICommand`/`IQuery`, `LoggingBehavior`, `ValidationBehavior` e `TransactionBehavior` (rollback em exceção, sem transação em Query)
+- [x] 3.7 Registrar MediatR e FluentValidation (assembly scan); mapeamento manual com `ToDto()` por feature, cada um com teste de unidade (TDD) ao ser criado
+- [x] 3.8 (TDD) Política de autorização padrão (`FallbackPolicy`), constantes de permissões e políticas por permissão; teste que enumera endpoints e falha se algum fora da lista pública não exigir autenticação
+- [x] 3.9 (TDD) Rate limiting por IP (`login` 5/min, `public-forms` 10/h, `analytics` 120/min) com resposta 429 em Problem Details; `ForwardedHeaders` configurável
+- [x] 3.10 (TDD) Health checks `/health`, `/health/live` e `/health/ready` (banco + escrita na pasta de armazenamento)
+- [x] 3.11 CORS com `AllowCredentials` só para `Cors:AllowedOrigins`; (TDD) teste de origem permitida e negada
+- [x] 3.12 (TDD) Validador de inicialização: em `Production` exige `SSL Mode` `Require`/`VerifyCA`/`VerifyFull`, chave JWT ≥ 32 bytes e segredo de revalidação; nunca aplica migrações na inicialização em `Production` (em `Development` aplicar automaticamente é opcional via configuração)
+- [x] 3.13 Commit da fase
 
 ## 4. Domínio e persistência
 

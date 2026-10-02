@@ -1,6 +1,8 @@
+using FluentValidation;
 using LaBlanca.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Npgsql;
@@ -22,10 +24,27 @@ public sealed class ApiFactory : WebApplicationFactory<Program>, IAsyncLifetime
 
     public string ConnectionString => _database.GetConnectionString();
 
+    public string StorageRoot { get; } = Path.Combine(Path.GetTempPath(), "lablanca-tests", Guid.NewGuid().ToString("N"));
+
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
-        builder.UseEnvironment("Testing");
-        builder.UseSetting("ConnectionStrings:Default", ConnectionString);
+        builder.ApplyDefaults(ConnectionString, StorageRoot);
+        builder.ConfigureTestServices(AddTestEndpoints);
+    }
+
+    public static void AddTestEndpoints(IServiceCollection services)
+    {
+        var assembly = typeof(ApiFactory).Assembly;
+        services.AddControllers().AddApplicationPart(assembly);
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assembly));
+        services.AddValidatorsFromAssembly(assembly);
+    }
+
+    public HttpClient CreateClientWithToken(params string[] permissions)
+    {
+        var client = CreateClient();
+        client.DefaultRequestHeaders.Authorization = new("Bearer", TestTokens.Create(permissions));
+        return client;
     }
 
     public async Task InitializeAsync()
@@ -56,6 +75,10 @@ public sealed class ApiFactory : WebApplicationFactory<Program>, IAsyncLifetime
     {
         await _database.DisposeAsync();
         await base.DisposeAsync();
+        if (Directory.Exists(StorageRoot))
+        {
+            Directory.Delete(StorageRoot, recursive: true);
+        }
     }
 }
 

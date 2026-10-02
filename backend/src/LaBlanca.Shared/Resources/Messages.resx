@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Problem.Title.400" xml:space="preserve"><value>Requisição inválida</value></data>
+  <data name="Problem.Title.401" xml:space="preserve"><value>Não autenticado</value></data>
+  <data name="Problem.Title.403" xml:space="preserve"><value>Acesso negado</value></data>
+  <data name="Problem.Title.404" xml:space="preserve"><value>Não encontrado</value></data>
+  <data name="Problem.Title.405" xml:space="preserve"><value>Método não permitido</value></data>
+  <data name="Problem.Title.409" xml:space="preserve"><value>Conflito</value></data>
+  <data name="Problem.Title.413" xml:space="preserve"><value>Conteúdo grande demais</value></data>
+  <data name="Problem.Title.415" xml:space="preserve"><value>Tipo de conteúdo não suportado</value></data>
+  <data name="Problem.Title.429" xml:space="preserve"><value>Muitas requisições</value></data>
+  <data name="Problem.Title.500" xml:space="preserve"><value>Erro interno</value></data>
+  <data name="Problem.Title.503" xml:space="preserve"><value>Serviço indisponível</value></data>
+  <data name="Error.Unexpected" xml:space="preserve"><value>Ocorreu um erro inesperado. Tente novamente mais tarde.</value></data>
+  <data name="Error.Validation" xml:space="preserve"><value>Um ou mais campos são inválidos.</value></data>
+  <data name="Error.NotFound" xml:space="preserve"><value>O recurso solicitado não foi encontrado.</value></data>
+  <data name="Error.Unauthorized" xml:space="preserve"><value>É necessário estar autenticado.</value></data>
+  <data name="Error.Forbidden" xml:space="preserve"><value>Você não tem permissão para esta ação.</value></data>
+  <data name="Error.TooManyRequests" xml:space="preserve"><value>Muitas requisições. Aguarde um pouco e tente novamente.</value></data>
+</root>

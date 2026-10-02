@@ -35,3 +35,7 @@ Thumbs.db
 
 # Coverage
 coverage/
+
+# API runtime data (logs and uploaded files)
+backend/src/LaBlanca.Api/logs/
+backend/src/LaBlanca.Api/storage/
