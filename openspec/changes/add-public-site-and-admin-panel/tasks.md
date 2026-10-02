@@ -91,12 +91,12 @@
 
 ## 9. Leads, proprietários e agenda
 
-- [ ] 9.1 (TDD) `SubmitPublicLead` (origens, consentimento, e-mail obrigatório só na newsletter, telefone ≥ 8 dígitos, honeypot, idioma, resposta 202 sem dados) com rate limit `public-forms`
-- [ ] 9.2 (TDD) CRUD administrativo de leads, mudança de status, listagem ampla e conversão de `OwnerProposal` em proprietário — spec `leads`
-- [ ] 9.3 (TDD) CRUD de proprietários com imóveis captados e bloqueio de exclusão com anúncio não arquivado — spec `property-owners`
-- [ ] 9.4 (TDD) Visitas: criar/editar/cancelar, data futura, conflito de horário (409), atualização do status do lead, intervalo ≤ 62 dias, próximos 10, encerramento — spec `visit-scheduling`
-- [ ] 9.5 Controllers `PublicLeadsController`, `AdminLeadsController`, `AdminOwnersController`, `AdminVisitsController` com permissões
-- [ ] 9.6 Commit da fase
+- [x] 9.1 (TDD) `SubmitPublicLead` (origens, consentimento, e-mail obrigatório só na newsletter, telefone ≥ 8 dígitos, honeypot, idioma, resposta 202 sem dados) com rate limit `public-forms`
+- [x] 9.2 (TDD) CRUD administrativo de leads, mudança de status, listagem ampla e conversão de `OwnerProposal` em proprietário — spec `leads`
+- [x] 9.3 (TDD) CRUD de proprietários com imóveis captados e bloqueio de exclusão com anúncio não arquivado — spec `property-owners`
+- [x] 9.4 (TDD) Visitas: criar/editar/cancelar, data futura, conflito de horário (409), atualização do status do lead, intervalo ≤ 62 dias, próximos 10, encerramento — spec `visit-scheduling`
+- [x] 9.5 Controllers `PublicLeadsController`, `AdminLeadsController`, `AdminOwnersController`, `AdminVisitsController` com permissões
+- [x] 9.6 Commit da fase
 
 ## 10. Analytics e dashboard (spec `site-analytics`)
 

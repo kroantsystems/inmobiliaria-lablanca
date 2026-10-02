@@ -49,4 +49,11 @@
   <data name="Files.ContentMismatch" xml:space="preserve"><value>The file content does not match its type.</value></data>
   <data name="Files.Required" xml:space="preserve"><value>Select a file.</value></data>
   <data name="Files.LastPublicImage" xml:space="preserve"><value>This listing is published and needs at least one public image.</value></data>
+  <data name="Lead.InvalidPhone" xml:space="preserve"><value>Enter a valid phone or WhatsApp number with at least 8 digits.</value></data>
+  <data name="Lead.ConsentRequired" xml:space="preserve"><value>You must allow us to contact you to submit the form.</value></data>
+  <data name="Lead.NotOwnerProposal" xml:space="preserve"><value>Only owner proposals can be converted into an owner.</value></data>
+  <data name="Owner.HasActiveProperties" xml:space="preserve"><value>The owner has active listings. Archive them before deleting.</value></data>
+  <data name="Visit.DateInPast" xml:space="preserve"><value>The visit date and time are in the past.</value></data>
+  <data name="Visit.Conflict" xml:space="preserve"><value>There is already a visit scheduled for this property at that time.</value></data>
+  <data name="Visit.RangeTooLarge" xml:space="preserve"><value>The requested period can be at most {0} days.</value></data>
 </root>

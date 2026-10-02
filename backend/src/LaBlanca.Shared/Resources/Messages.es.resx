@@ -49,4 +49,11 @@
   <data name="Files.ContentMismatch" xml:space="preserve"><value>El contenido del archivo no corresponde al tipo indicado.</value></data>
   <data name="Files.Required" xml:space="preserve"><value>Seleccione un archivo.</value></data>
   <data name="Files.LastPublicImage" xml:space="preserve"><value>Este anuncio está publicado y necesita al menos una imagen pública.</value></data>
+  <data name="Lead.InvalidPhone" xml:space="preserve"><value>Ingrese un teléfono o WhatsApp válido, con al menos 8 dígitos.</value></data>
+  <data name="Lead.ConsentRequired" xml:space="preserve"><value>Debe autorizar el contacto para enviar el formulario.</value></data>
+  <data name="Lead.NotOwnerProposal" xml:space="preserve"><value>Solo las propuestas de propietarios pueden convertirse en propietario.</value></data>
+  <data name="Owner.HasActiveProperties" xml:space="preserve"><value>El propietario tiene anuncios activos. Archívelos antes de eliminar.</value></data>
+  <data name="Visit.DateInPast" xml:space="preserve"><value>La fecha y hora de la visita ya pasaron.</value></data>
+  <data name="Visit.Conflict" xml:space="preserve"><value>Ya hay una visita programada para este inmueble en ese horario.</value></data>
+  <data name="Visit.RangeTooLarge" xml:space="preserve"><value>El período consultado puede tener como máximo {0} días.</value></data>
 </root>

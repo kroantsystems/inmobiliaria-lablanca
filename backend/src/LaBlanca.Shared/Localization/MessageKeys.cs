@@ -36,5 +36,13 @@ public static class MessageKeys
     public const string FileRequired = "Files.Required";
     public const string LastPublicImage = "Files.LastPublicImage";
 
+    public const string InvalidPhone = "Lead.InvalidPhone";
+    public const string ConsentRequired = "Lead.ConsentRequired";
+    public const string LeadNotOwnerProposal = "Lead.NotOwnerProposal";
+    public const string OwnerHasActiveProperties = "Owner.HasActiveProperties";
+    public const string VisitDateInPast = "Visit.DateInPast";
+    public const string VisitConflict = "Visit.Conflict";
+    public const string VisitRangeTooLarge = "Visit.RangeTooLarge";
+
     public static string ProblemTitle(int statusCode) => $"Problem.Title.{statusCode}";
 }
