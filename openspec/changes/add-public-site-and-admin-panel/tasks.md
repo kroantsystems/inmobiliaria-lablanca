@@ -2,9 +2,9 @@
 
 ## 1. Preparação do repositório
 
-- [ ] 1.1 Adicionar remoto `origin` apontando para `https://github.com/kroantsystems/inmobiliaria-lablanca` e fazer o commit inicial do scaffold existente (confirmar com o usuário antes do primeiro push)
-- [ ] 1.2 Arquivar `scaffold-initial-project` (`openspec archive scaffold-initial-project`) para criar `openspec/specs/backend-api-foundation` e `openspec/specs/frontend-app-shell`
-- [ ] 1.3 Preencher `context` em `openspec/config.yaml` com stack, idiomas, regras de licença de pacotes e convenção TDD
+- [x] 1.1 Adicionar remoto `origin` apontando para `https://github.com/kroantsystems/inmobiliaria-lablanca` e fazer o commit inicial do scaffold existente (confirmar com o usuário antes do primeiro push)
+- [x] 1.2 Arquivar `scaffold-initial-project` (`openspec archive scaffold-initial-project`) para criar `openspec/specs/backend-api-foundation` e `openspec/specs/frontend-app-shell`
+- [x] 1.3 Preencher `context` em `openspec/config.yaml` com stack, idiomas, regras de licença de pacotes e convenção TDD
 
 ## 2. Reestruturação da solução .NET
 

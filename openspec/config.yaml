@@ -1,20 +1,19 @@
 schema: spec-driven
 
-# Project context (optional)
-# This is shown to AI when creating artifacts.
-# Add your tech stack, conventions, style guides, domain knowledge, etc.
-# Example:
-#   context: |
-#     Tech stack: TypeScript, React, Node.js
-#     We use conventional commits
-#     Domain: e-commerce platform
+context: |
+  Produto: site público e painel administrativo da Inmobiliaria La Blanca (Ciudad del Este, Paraguai).
+  Monorepo: frontend/ (Next.js 16 App Router, React 19, Tailwind 4, next-intl) e backend/ (.NET 10, C# 14).
+  Backend: ASP.NET Core Controllers, MediatR (CQRS), FluentValidation, AutoMapper, EF Core 10 + Npgsql,
+  Serilog, Problem Details (RFC 7807), JWT (access 15 min + refresh opaco 7 dias em cookie HttpOnly), BCrypt.
+  Banco: PostgreSQL 17 local via docker-compose; produção no Supabase (só banco, schema `lablanca`, RLS em todas as tabelas).
+  Idiomas: es (padrão, Paraguai), pt, en, gn. Recursos .resx no LaBlanca.Shared (neutro = pt); mensagens JSON no frontend.
+  Multi-tenant: toda entidade de negócio tem TenantId com filtro global.
+  Segurança: autorização obrigatória por padrão; só /api/public/*, login, refresh e /health* são anônimos.
+  Licenças: manter MediatR 12.x, AutoMapper 14.x e FluentAssertions 7.x (versões acima são comerciais).
+  Convenção: TDD (teste antes do código); testes em LaBlanca.UnitTests e LaBlanca.IntegrationTests (Testcontainers).
+  Documentação e specs em português; código e commits em inglês (conventional commits).
 
-# Per-artifact rules (optional)
-# Add custom rules for specific artifacts.
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always include a "Non-goals" section
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
+rules:
+  tasks:
+    - Marcar com (TDD) tarefas que exigem teste escrito antes da implementação
+    - Terminar cada fase com build e testes verdes e um commit
