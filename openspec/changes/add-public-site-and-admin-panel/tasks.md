@@ -100,12 +100,12 @@
 
 ## 10. Analytics e dashboard (spec `site-analytics`)
 
-- [ ] 10.1 (TDD) `RecordEvent` com tipos permitidos, filtro de robôs pelo user agent sem gravá-lo, sem IP; rate limit `analytics`
-- [ ] 10.2 (TDD) Resumo do mês no fuso `America/Asuncion` com variação (nula quando o mês anterior é zero), incluindo vendas vs meta, aluguéis ativos e leads novos
-- [ ] 10.3 (TDD) Tráfego diário (7 ou 30 dias, dias vazios com zero, 400 para outros valores) e top 5 anúncios dos últimos 30 dias
-- [ ] 10.4 (TDD) Tarefa diária de retenção que apaga eventos com mais de 13 meses
-- [ ] 10.5 `PublicAnalyticsController` e `AdminDashboardController` (`dashboard.read`)
-- [ ] 10.6 Commit da fase
+- [x] 10.1 (TDD) `RecordEvent` com tipos permitidos, filtro de robôs pelo user agent sem gravá-lo, sem IP; rate limit `analytics`
+- [x] 10.2 (TDD) Resumo do mês no fuso `America/Asuncion` com variação (nula quando o mês anterior é zero), incluindo vendas vs meta, aluguéis ativos e leads novos
+- [x] 10.3 (TDD) Tráfego diário (7 ou 30 dias, dias vazios com zero, 400 para outros valores) e top 5 anúncios dos últimos 30 dias
+- [x] 10.4 (TDD) Tarefa diária de retenção que apaga eventos com mais de 13 meses
+- [x] 10.5 `PublicAnalyticsController` e `AdminDashboardController` (`dashboard.read`)
+- [x] 10.6 Commit da fase
 
 ## 11. Fundação do frontend
 

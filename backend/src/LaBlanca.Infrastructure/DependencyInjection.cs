@@ -54,6 +54,7 @@ public static class DependencyInjection
         if (configuration.GetValue("BackgroundJobs:Enabled", true))
         {
             services.AddHostedService<RefreshTokenCleanupService>();
+            services.AddHostedService<Analytics.AnalyticsRetentionService>();
         }
 
         services.Configure<UploadOptions>(configuration.GetSection(UploadOptions.SectionName));
