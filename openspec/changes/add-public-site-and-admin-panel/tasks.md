@@ -8,16 +8,16 @@
 
 ## 2. Reestruturação da solução .NET
 
-- [ ] 2.1 Criar `backend/Directory.Packages.props` (Central Package Management) e `Directory.Build.props` (nullable, warnings como erro, `LangVersion` 14), fixando MediatR 12.x, AutoMapper 14.x, FluentAssertions 7.x, Moq ≥ 4.20.72
-- [ ] 2.2 Criar projetos `src/LaBlanca.Shared` (com `FrameworkReference` ASP.NET Core) e `src/LaBlanca.Migrations`, e adicioná-los à `LaBlanca.sln`
-- [ ] 2.3 Criar `tools/LaBlanca.Tools` (console) e adicioná-lo à solução
-- [ ] 2.4 Substituir `tests/LaBlanca.Tests` por `tests/LaBlanca.UnitTests` e `tests/LaBlanca.IntegrationTests` (xUnit, Moq, FluentAssertions 7.x, Testcontainers.PostgreSql, Respawn) e mover o teste de health para `IntegrationTests`
-- [ ] 2.5 Ajustar referências entre projetos conforme o design (Api → Application/Infrastructure/Migrations/Shared; Infrastructure → Application/Domain/Shared; Application → Domain/Shared; Migrations → Infrastructure)
-- [ ] 2.6 (TDD) Teste de arquitetura em `UnitTests` garantindo que `Domain` e `Shared` não referenciam outros projetos da solução
-- [ ] 2.7 Configurar `MigrationsAssembly("LaBlanca.Migrations")`, `HasDefaultSchema("lablanca")` e `MigrationsHistoryTable("__EFMigrationsHistory", "lablanca")` no `AppDbContext`, remover a migração `InitialCreate` da `Infrastructure` e atualizar comandos do README
-- [ ] 2.8 Alinhar a imagem do `docker-compose.yml` e do Testcontainers à versão major do PostgreSQL do Supabase (hoje 17), numa constante única nos testes
-- [ ] 2.9 Criar `IntegrationTests/Infrastructure/ApiFactory` (WebApplicationFactory + container PostgreSQL compartilhado + Respawn configurado para o schema `lablanca`) e fazer o teste de health passar contra Postgres real
-- [ ] 2.10 Commit da fase
+- [x] 2.1 Criar `backend/Directory.Packages.props` (Central Package Management) e `Directory.Build.props` (nullable, warnings como erro, `LangVersion` 14), fixando MediatR 12.5.0, FluentAssertions 7.2.x, Moq 4.20.72, com auditoria do NuGet ativa
+- [x] 2.2 Criar projetos `src/LaBlanca.Shared` (com `FrameworkReference` ASP.NET Core) e `src/LaBlanca.Migrations`, e adicioná-los à `LaBlanca.sln`
+- [x] 2.3 Criar `tools/LaBlanca.Tools` (console) e adicioná-lo à solução
+- [x] 2.4 Substituir `tests/LaBlanca.Tests` por `tests/LaBlanca.UnitTests` e `tests/LaBlanca.IntegrationTests` (xUnit, Moq, FluentAssertions 7.x, Testcontainers.PostgreSql, Respawn) e mover o teste de health para `IntegrationTests`
+- [x] 2.5 Ajustar referências entre projetos conforme o design (Api → Application/Infrastructure/Migrations/Shared; Infrastructure → Application/Domain/Shared; Application → Domain/Shared; Migrations → Infrastructure)
+- [x] 2.6 (TDD) Teste de arquitetura em `UnitTests` garantindo que `Domain` e `Shared` não referenciam outros projetos da solução
+- [x] 2.7 Configurar `MigrationsAssembly("LaBlanca.Migrations")`, `HasDefaultSchema("lablanca")` e `MigrationsHistoryTable("__EFMigrationsHistory", "lablanca")` no `AppDbContext`, remover a migração `InitialCreate` da `Infrastructure` e atualizar comandos do README
+- [x] 2.8 Alinhar a imagem do `docker-compose.yml` e do Testcontainers à versão major do PostgreSQL do Supabase (hoje 17), numa constante única nos testes
+- [x] 2.9 Criar `IntegrationTests/Infrastructure/ApiFactory` (WebApplicationFactory + container PostgreSQL compartilhado + Respawn configurado para o schema `lablanca`) e fazer o teste de health passar contra Postgres real
+- [x] 2.10 Commit da fase
 
 ## 3. Plataforma da API (cross-cutting)
 
@@ -27,7 +27,7 @@
 - [ ] 3.4 (TDD) `RequestLocalization` com `pt` (padrão), `es`, `en`, `gn` lendo `Accept-Language`; teste de integração de mensagem de validação em espanhol e fallback para `fr`
 - [ ] 3.5 Configurar Serilog (console + arquivo rotativo, enrichers de `traceId`), `UseSerilogRequestLogging` e política que remove propriedades `Password`, `CurrentPassword`, `NewPassword`, `Token`
 - [ ] 3.6 (TDD) Marcadores `ICommand`/`IQuery`, `LoggingBehavior`, `ValidationBehavior` e `TransactionBehavior` (rollback em exceção, sem transação em Query)
-- [ ] 3.7 Registrar MediatR, FluentValidation (assembly scan) e AutoMapper; (TDD) teste `AssertConfigurationIsValid`
+- [ ] 3.7 Registrar MediatR e FluentValidation (assembly scan); mapeamento manual com `ToDto()` por feature, cada um com teste de unidade (TDD) ao ser criado
 - [ ] 3.8 (TDD) Política de autorização padrão (`FallbackPolicy`), constantes de permissões e políticas por permissão; teste que enumera endpoints e falha se algum fora da lista pública não exigir autenticação
 - [ ] 3.9 (TDD) Rate limiting por IP (`login` 5/min, `public-forms` 10/h, `analytics` 120/min) com resposta 429 em Problem Details; `ForwardedHeaders` configurável
 - [ ] 3.10 (TDD) Health checks `/health`, `/health/live` e `/health/ready` (banco + escrita na pasta de armazenamento)

@@ -13,7 +13,11 @@ public static class DependencyInjection
             throw new InvalidOperationException("Connection string 'ConnectionStrings:Default' não configurada.");
         }
 
-        services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
+        services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString, npgsql =>
+        {
+            npgsql.MigrationsAssembly("LaBlanca.Migrations");
+            npgsql.MigrationsHistoryTable("__EFMigrationsHistory", AppDbContext.Schema);
+        }));
 
         return services;
     }

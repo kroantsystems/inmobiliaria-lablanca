@@ -38,7 +38,7 @@ backend/
   src/
     LaBlanca.Domain/          Entidades, enums, regras puras, exceções de domínio. Sem dependências.
     LaBlanca.Shared/          Middleware Problem Details, mapeamento exceção → status, Messages*.resx, constantes de cultura.
-    LaBlanca.Application/     Features/<Modulo>/{Commands,Queries,Dtos,Validators,Mapping}, Behaviors, Abstractions (IAppDbContext, ITenantContext, IFileStorage, IClock, ITokenService, IPasswordHasher, IRevalidationNotifier).
+    LaBlanca.Application/     Features/<Modulo>/{Commands,Queries,Dtos,Validators,Mapping (ToDto manual)}, Behaviors, Abstractions (IAppDbContext, ITenantContext, IFileStorage, IClock, ITokenService, IPasswordHasher, IRevalidationNotifier).
     LaBlanca.Infrastructure/  AppDbContext + configurações EF, autenticação (JWT, BCrypt, refresh tokens, blacklist), armazenamento em disco, notificador de revalidação, tarefas em segundo plano.
     LaBlanca.Migrations/      Migrações do EF (MigrationsAssembly).
     LaBlanca.Api/             Controllers, Program, políticas de autorização, rate limiting, Serilog, health checks.
@@ -49,15 +49,16 @@ backend/
 ```
 Dependências: Api → Application, Infrastructure, Migrations, Shared; Infrastructure → Application, Domain, Shared; Application → Domain, Shared; Migrations → Infrastructure. A migração `InitialCreate` existente é removida e recriada em `LaBlanca.Migrations` (não há banco em produção). `LaBlanca.Tests` é substituído pelos dois projetos de teste; o teste de health vai para `IntegrationTests`.
 
-### 3. Controllers + MediatR + FluentValidation + AutoMapper
+### 3. Controllers + MediatR + FluentValidation + mapeamento manual
 O scaffold usava Minimal APIs; passamos a Controllers (`[ApiController]`) porque o cliente pediu `[Authorize]` nos endpoints e Controllers dão atributos por ação, filtros e agrupamento por módulo de forma direta. Controllers são finos: montam o Command/Query, chamam `ISender.Send` e devolvem o DTO.
 
 Versões de pacote (licença):
-- **MediatR 12.x** (12.5 é a última Apache 2.0; 13+ exige licença comercial).
-- **AutoMapper 14.x** (última MIT; 15+ exige licença comercial).
-- **FluentAssertions 7.x** (pedido do cliente; 8+ comercial).
-- **Moq 4.20.72+** (versão sem SponsorLink).
-Versões ficam fixadas com `Directory.Packages.props` (Central Package Management) para que nenhum `dotnet add` suba a major por acidente. Alternativa: Mapster/handlers próprios sem MediatR; descartada porque o cliente pediu explicitamente MediatR e AutoMapper.
+- **MediatR 12.5.0** (última Apache 2.0; 13+ exige licença comercial).
+- **FluentAssertions 7.2.x** (pedido do cliente; 8+ comercial).
+- **Moq 4.20.72** (versão sem SponsorLink).
+Versões ficam fixadas com `Directory.Packages.props` (Central Package Management) para que nenhum `dotnet add` suba a major por acidente.
+
+**AutoMapper removido (decisão do cliente na implementação).** A última versão MIT (14.0.0) tem a vulnerabilidade GHSA-rvv3-g6hj-g44x (CVSS 7.5, DoS por recursão sem limite), corrigida só nas versões comerciais 15.1.1+/16.1.1+. O mapeamento passa a ser manual: métodos de extensão `ToDto()` por feature em `Application/Features/<Modulo>/Mapping` e projeções `Select(...)` nas Queries (o EF gera SQL só com as colunas usadas). Alternativas descartadas: suprimir o alerta, licença Community do AutoMapper 16 e Mapster.
 
 ### 4. Pipeline do MediatR
 Ordem: `LoggingBehavior` → `ValidationBehavior` (executa todos os `IValidator<T>` e lança `ValidationException` com erros por campo) → `TransactionBehavior` (só para requests que implementam `ICommand`/`ICommand<T>`; abre transação, chama `SaveChangesAsync` e faz commit; rollback em exceção). Queries usam `AsNoTracking`. Marcadores `ICommand` e `IQuery` em `Application/Abstractions/Messaging`.
@@ -148,7 +149,7 @@ Eventos gravados em tabela própria em vez de Google Analytics: não exige banne
 
 ### 14. Estratégia de testes (TDD)
 - Ciclo vermelho → verde → refatorar por requisito: cada cenário das specs vira ao menos um teste antes do código.
-- **Unidade**: entidades e regras de domínio, validadores, handlers (EF Core InMemory para fluxos simples e Moq para serviços externos como relógio, hash, armazenamento e revalidação; o que depende de SQL do PostgreSQL fica nos testes de integração), behaviors, `TokenService`, `PasswordHasher`, `FileValidationService`, geração de slug, cálculo de KPIs, chaves de `.resx`, configuração do AutoMapper.
+- **Unidade**: entidades e regras de domínio, validadores, handlers (EF Core InMemory para fluxos simples e Moq para serviços externos como relógio, hash, armazenamento e revalidação; o que depende de SQL do PostgreSQL fica nos testes de integração), behaviors, `TokenService`, `PasswordHasher`, `FileValidationService`, geração de slug, cálculo de KPIs, chaves de `.resx`, mapeamentos `ToDto()`.
 - **Integração**: `WebApplicationFactory` + Testcontainers PostgreSQL (um container por execução, banco limpo por classe de teste via Respawn), cobrindo autorização, Problem Details, localização, rate limit, upload real e fluxo completo de login/refresh/logout.
 - **Frontend**: Vitest + Testing Library para `useDebounce`, `useClientTable`, validação de upload, interceptor de refresh (single-flight), formatação, simulador, geradores de JSON-LD e paridade de mensagens.
 
@@ -171,7 +172,7 @@ Eventos gravados em tabela própria em vez de Google Analytics: não exige banne
 
 ## Risks / Trade-offs
 
-- [MediatR 12 e AutoMapper 14 não recebem mais correções da linha aberta] → versões fixadas em `Directory.Packages.props`, uso restrito a recursos estáveis; se surgir vulnerabilidade relevante, trocar AutoMapper por mapeamento manual nos perfis afetados.
+- [MediatR 12 não recebe mais correções da linha aberta] → versão fixada em `Directory.Packages.props`, uso restrito a `ISender`/`IPipelineBehavior`; auditoria do NuGet ativa e com aviso tratado como erro, de modo que uma vulnerabilidade nova quebra o build.
 - [Blacklist em memória não é compartilhada entre instâncias e some ao reiniciar] → aceitável com uma instância; access token dura só 15 min. A interface permite trocar por `IDistributedCache` (Redis) se houver mais de uma instância.
 - [Cultura `gn` pode não existir no ICU] → `PredefinedCulturesOnly=false` e teste de unidade; no frontend, formatação de `gn` usa `es-PY`.
 - [Traduções em guarani de baixa qualidade prejudicam a marca e o SEO] → `gn` começa com espanhol e só recebe textos revisados por falante nativo; páginas `gn` sem tradução de conteúdo continuam canônicas a si mesmas, mas a lista de pendências fica no repositório.

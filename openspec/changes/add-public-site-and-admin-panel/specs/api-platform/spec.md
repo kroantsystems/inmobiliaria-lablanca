@@ -106,8 +106,12 @@ A API SHALL aplicar rate limiting por IP: login com 5 requisições por minuto, 
 - **THEN** a API retorna HTTP 429 em Problem Details
 
 ### Requirement: Contratos via DTOs
-Os Controllers SHALL receber e devolver apenas DTOs, nunca entidades de domínio, e o mapeamento entre entidades e DTOs SHALL ser feito com perfis do AutoMapper validados por teste.
+Os Controllers SHALL receber e devolver apenas DTOs, nunca entidades de domínio. O mapeamento entre entidades e DTOs SHALL ser feito por código explícito (métodos de extensão `ToDto()` e projeções `Select` do EF Core), sem biblioteca de mapeamento por reflexão, e coberto por testes de unidade.
 
-#### Scenario: Configuração de mapeamento válida
-- **WHEN** o teste unitário de configuração do AutoMapper roda
-- **THEN** `AssertConfigurationIsValid` passa para todos os perfis
+#### Scenario: Mapeamento completo
+- **WHEN** o teste de unidade mapeia uma entidade preenchida para o DTO correspondente
+- **THEN** todos os campos do DTO recebem o valor esperado da entidade
+
+#### Scenario: Campo sensível fora do DTO
+- **WHEN** um usuário é mapeado para o DTO de resposta
+- **THEN** o DTO não contém hash de senha, contador de falhas nem dados de bloqueio

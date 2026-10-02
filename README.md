@@ -15,12 +15,19 @@ Monorepo do site da imobiliária La Blanca: frontend em Next.js e API em .NET 10
 .
 ├── backend/                     # API .NET 10
 │   ├── LaBlanca.sln
+│   ├── Directory.Build.props        # Configurações comuns (net10.0, nullable, warnings como erro, auditoria NuGet)
+│   ├── Directory.Packages.props     # Versões centralizadas dos pacotes
 │   ├── src/
-│   │   ├── LaBlanca.Api/            # Minimal APIs, configuração, health check, OpenAPI
-│   │   ├── LaBlanca.Application/    # Casos de uso
+│   │   ├── LaBlanca.Api/            # Controllers, configuração, health check, OpenAPI
+│   │   ├── LaBlanca.Application/    # Casos de uso (Commands/Queries)
 │   │   ├── LaBlanca.Domain/         # Entidades e regras de negócio (sem dependências)
-│   │   └── LaBlanca.Infrastructure/ # EF Core, PostgreSQL, migrações
-│   └── tests/LaBlanca.Tests/        # Testes xUnit
+│   │   ├── LaBlanca.Infrastructure/ # EF Core, PostgreSQL, autenticação, arquivos
+│   │   ├── LaBlanca.Migrations/     # Migrações do EF Core
+│   │   └── LaBlanca.Shared/         # Erros (Problem Details) e recursos de idioma
+│   ├── tools/LaBlanca.Tools/        # CLI de administração (criar admin, trocar senha)
+│   └── tests/
+│       ├── LaBlanca.UnitTests/        # Testes de unidade (sem Docker)
+│       └── LaBlanca.IntegrationTests/ # Testes de integração (PostgreSQL via Testcontainers, exige Docker)
 ├── frontend/                    # Next.js (App Router, TypeScript, Tailwind)
 ├── openspec/                    # Especificações e mudanças (OpenSpec)
 └── docker-compose.yml           # PostgreSQL local
@@ -40,7 +47,7 @@ Sobe o PostgreSQL em `localhost:5432` (banco `lablanca`, usuário/senha `postgre
 
 ```bash
 cd backend
-dotnet ef database update -p src/LaBlanca.Infrastructure -s src/LaBlanca.Api
+dotnet ef database update -p src/LaBlanca.Migrations -s src/LaBlanca.Api
 dotnet run --project src/LaBlanca.Api --launch-profile http
 ```
 
@@ -64,8 +71,9 @@ Acesse http://localhost:3000. O rodapé da home mostra se a API está conectada.
 | Onde | Comando | O que faz |
 |------|---------|-----------|
 | `backend/` | `dotnet build` | Compila a solução |
-| `backend/` | `dotnet test` | Roda os testes |
-| `backend/` | `dotnet ef migrations add <Nome> -p src/LaBlanca.Infrastructure -s src/LaBlanca.Api -o Persistence/Migrations` | Cria uma migração |
+| `backend/` | `dotnet test` | Roda todos os testes (integração exige Docker) |
+| `backend/` | `dotnet test tests/LaBlanca.UnitTests` | Só testes de unidade |
+| `backend/` | `dotnet ef migrations add <Nome> -p src/LaBlanca.Migrations -s src/LaBlanca.Api` | Cria uma migração |
 | `frontend/` | `npm run lint` | ESLint |
 | `frontend/` | `npm run build` | Build de produção |
 

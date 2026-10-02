@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\LaBlanca.Infrastructure\LaBlanca.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
