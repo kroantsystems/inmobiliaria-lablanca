@@ -1,3 +1,4 @@
+using LaBlanca.Application.Abstractions.Security;
 using LaBlanca.Application.Authorization;
 using LaBlanca.Infrastructure.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -16,6 +17,21 @@ public static class AuthenticationSetup
             {
                 bearer.MapInboundClaims = false;
                 bearer.TokenValidationParameters = jwt.Value.CreateValidationParameters();
+                bearer.Events = new JwtBearerEvents
+                {
+                    // Tokens encerrados por logout ou troca de senha deixam de valer antes de expirar.
+                    OnTokenValidated = context =>
+                    {
+                        var jti = context.Principal?.FindFirst("jti")?.Value;
+                        var blacklist = context.HttpContext.RequestServices.GetRequiredService<IAccessTokenBlacklist>();
+                        if (jti is null || blacklist.IsRevoked(jti))
+                        {
+                            context.Fail("Access token revoked.");
+                        }
+
+                        return Task.CompletedTask;
+                    },
+                };
             });
 
         services.AddAuthorization(options =>

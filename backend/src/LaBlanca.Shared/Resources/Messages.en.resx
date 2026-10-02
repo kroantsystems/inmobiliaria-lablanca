@@ -27,4 +27,10 @@
   <data name="Media.NotInProperty" xml:space="preserve"><value>The file does not belong to this listing.</value></data>
   <data name="Media.DocumentsArePrivate" xml:space="preserve"><value>Documents are always private and cannot be made public.</value></data>
   <data name="Media.OnlyImagesCanBeCover" xml:space="preserve"><value>Only images can be the listing cover.</value></data>
+  <data name="Auth.InvalidCredentials" xml:space="preserve"><value>Invalid email or password.</value></data>
+  <data name="Auth.SessionExpired" xml:space="preserve"><value>Your session has expired. Please sign in again.</value></data>
+  <data name="Auth.CurrentPasswordInvalid" xml:space="preserve"><value>The current password is incorrect.</value></data>
+  <data name="Auth.PasswordMustDiffer" xml:space="preserve"><value>The new password must be different from the current one.</value></data>
+  <data name="Auth.PasswordPolicy" xml:space="preserve"><value>The password must have at least {0} characters, including letters and numbers.</value></data>
+  <data name="Auth.UserEmailExists" xml:space="preserve"><value>A user with this email already exists.</value></data>
 </root>

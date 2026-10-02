@@ -28,4 +28,10 @@
   <data name="Media.NotInProperty" xml:space="preserve"><value>El archivo no pertenece a este anuncio.</value></data>
   <data name="Media.DocumentsArePrivate" xml:space="preserve"><value>Los documentos son siempre privados y no pueden ser públicos.</value></data>
   <data name="Media.OnlyImagesCanBeCover" xml:space="preserve"><value>Solo las imágenes pueden ser portada del anuncio.</value></data>
+  <data name="Auth.InvalidCredentials" xml:space="preserve"><value>Correo electrónico o contraseña incorrectos.</value></data>
+  <data name="Auth.SessionExpired" xml:space="preserve"><value>Su sesión expiró. Inicie sesión nuevamente.</value></data>
+  <data name="Auth.CurrentPasswordInvalid" xml:space="preserve"><value>La contraseña actual es incorrecta.</value></data>
+  <data name="Auth.PasswordMustDiffer" xml:space="preserve"><value>La nueva contraseña debe ser diferente de la actual.</value></data>
+  <data name="Auth.PasswordPolicy" xml:space="preserve"><value>La contraseña debe tener al menos {0} caracteres, con letras y números.</value></data>
+  <data name="Auth.UserEmailExists" xml:space="preserve"><value>Ya existe un usuario con este correo electrónico.</value></data>
 </root>

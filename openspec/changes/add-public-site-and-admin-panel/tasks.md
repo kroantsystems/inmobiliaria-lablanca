@@ -49,17 +49,17 @@
 
 ## 5. Autenticação (spec `admin-auth`)
 
-- [ ] 5.1 (TDD) `IPasswordHasher` com BCrypt (work factor 12)
-- [ ] 5.2 (TDD) `ITokenService`: JWT HS256 de 15 min com `sub`, `jti`, `email`, `name`, `tenant_id`, `role`, `permission`; validação de tamanho mínimo da chave
-- [ ] 5.3 (TDD) Serviço de refresh token: geração opaca, hash SHA-256, rotação, detecção de reuso com revogação de todos os tokens do usuário
-- [ ] 5.4 (TDD) `IAccessTokenBlacklist` com `IMemoryCache` e checagem em `JwtBearerEvents.OnTokenValidated`
-- [ ] 5.5 (TDD) `LoginCommand` + validador + handler (mensagem genérica, usuário inativo, bloqueio, zera contador, `LastLoginAt`)
-- [ ] 5.6 (TDD) `AuthController`: `login`, `refresh`, `logout`, `change-password`, `me`, com cookie `lb_rt` (`HttpOnly`, `Secure`, `SameSite=Strict`, `Path=/api/auth`, 7 dias) e ausência de `/register`
-- [ ] 5.7 (TDD) `ChangePasswordCommand` (senha atual, política de 10+ caracteres com letras e números, diferente da atual, revoga refresh tokens, novo par)
-- [ ] 5.8 `BackgroundService` diário que remove refresh tokens expirados
-- [ ] 5.9 (TDD) `LaBlanca.Tools`: `create-admin` (senha sem eco, erro para e-mail repetido), `reset-password` e `hash-password`; documentar uso e SQL equivalente no README
-- [ ] 5.10 Teste de integração do fluxo completo: login → chamada protegida → refresh → reuso do token antigo → logout → token antigo recusado
-- [ ] 5.11 Commit da fase
+- [x] 5.1 (TDD) `IPasswordHasher` com BCrypt (work factor 12)
+- [x] 5.2 (TDD) `ITokenService`: JWT HS256 de 15 min com `sub`, `jti`, `email`, `name`, `tenant_id`, `role`, `permission`; validação de tamanho mínimo da chave
+- [x] 5.3 (TDD) Serviço de refresh token: geração opaca, hash SHA-256, rotação, detecção de reuso com revogação de todos os tokens do usuário
+- [x] 5.4 (TDD) `IAccessTokenBlacklist` com `IMemoryCache` e checagem em `JwtBearerEvents.OnTokenValidated`
+- [x] 5.5 (TDD) `LoginCommand` + validador + handler (mensagem genérica, usuário inativo, bloqueio, zera contador, `LastLoginAt`)
+- [x] 5.6 (TDD) `AuthController`: `login`, `refresh`, `logout`, `change-password`, `me`, com cookie `lb_rt` (`HttpOnly`, `Secure`, `SameSite=Strict`, `Path=/api/auth`, 7 dias) e ausência de `/register`
+- [x] 5.7 (TDD) `ChangePasswordCommand` (senha atual, política de 10+ caracteres com letras e números, diferente da atual, revoga refresh tokens, novo par)
+- [x] 5.8 `BackgroundService` diário que remove refresh tokens expirados
+- [x] 5.9 (TDD) `LaBlanca.Tools`: `create-admin` (senha sem eco, erro para e-mail repetido), `reset-password` e `hash-password`; documentar uso e SQL equivalente no README
+- [x] 5.10 Teste de integração do fluxo completo: login → chamada protegida → refresh → reuso do token antigo → logout → token antigo recusado
+- [x] 5.11 Commit da fase
 
 ## 6. Configurações e zonas (spec `site-settings`)
 

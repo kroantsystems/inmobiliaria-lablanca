@@ -66,6 +66,26 @@ npm run dev
 
 Acesse http://localhost:3000. O rodapé da home mostra se a API está conectada.
 
+## Administradores
+
+Não existe cadastro de usuários pela API. O administrador é criado direto no banco pela ferramenta `LaBlanca.Tools` (a senha é pedida no terminal, sem eco; mínimo de 10 caracteres com letras e números):
+
+```bash
+cd backend
+dotnet run --project tools/LaBlanca.Tools -- create-admin --tenant la-blanca --name "Seu Nome" --email admin@exemplo.com
+```
+
+Outros comandos: `reset-password --tenant la-blanca --email ...` (redefine a senha e encerra as sessões) e `hash-password`. Fora do ambiente local, informe a conexão com a variável `ConnectionStrings__Default` ou `--connection "<connection string>"`.
+
+Se preferir inserir pelo SQL, gere o hash com `hash-password` e rode:
+
+```sql
+INSERT INTO lablanca."Users" ("Id", "TenantId", "Name", "Email", "PasswordHash", "Role", "IsActive", "FailedLoginCount", "CreatedAt")
+VALUES (gen_random_uuid(), '6f1c2a4e-8b3d-4f5a-9c7e-2d1b0a9e8f71', 'Seu Nome', 'admin@exemplo.com', '<hash>', 'Admin', true, 0, now());
+```
+
+Depois de logado, o admin só pode trocar a própria senha em **Minha conta**.
+
 ## Comandos úteis
 
 | Onde | Comando | O que faz |

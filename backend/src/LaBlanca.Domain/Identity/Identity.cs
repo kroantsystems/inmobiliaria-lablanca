@@ -97,9 +97,10 @@ public sealed class RefreshToken : TenantEntity
 
     public string? ReplacedByTokenHash { get; private set; }
 
-    public static RefreshToken Issue(Guid userId, string tokenHash, DateTimeOffset now, TimeSpan lifetime) => new()
+    public static RefreshToken Issue(User user, string tokenHash, DateTimeOffset now, TimeSpan lifetime) => new()
     {
-        UserId = userId,
+        TenantId = user.TenantId,
+        UserId = user.Id,
         TokenHash = tokenHash,
         CreatedAt = now,
         ExpiresAt = now + lifetime,

@@ -109,6 +109,9 @@ app.UseAuthorization();
 app.MapControllers();
 app.MapApiHealthChecks();
 
+// Rotas inexistentes respondem 404 (e não 401 pela política padrão de autorização).
+app.MapFallback(() => Results.Problem(statusCode: StatusCodes.Status404NotFound)).AllowAnonymous();
+
 if (app.Environment.IsDevelopment() && app.Configuration.GetValue<bool>("Database:MigrateOnStartup"))
 {
     using var scope = app.Services.CreateScope();

@@ -21,6 +21,7 @@ public static class DependencyInjection
         });
 
         services.AddValidatorsFromAssembly(assembly, includeInternalTypes: true);
+        services.AddScoped<Features.Auth.AuthSessionIssuer>();
         ValidatorOptions.Global.LanguageManager = new AppLanguageManager();
 
         return services;

@@ -1,4 +1,5 @@
 using LaBlanca.Application.Abstractions.Persistence;
+using LaBlanca.Application.Abstractions.Security;
 using LaBlanca.Infrastructure.Authentication;
 using LaBlanca.Infrastructure.Persistence;
 using LaBlanca.Infrastructure.Storage;
@@ -35,6 +36,15 @@ public static class DependencyInjection
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         services.Configure<JwtOptions>(configuration.GetSection(JwtOptions.SectionName));
+        services.AddMemoryCache();
+        services.AddSingleton<IPasswordHasher, BCryptPasswordHasher>();
+        services.AddSingleton<ITokenService, JwtTokenService>();
+        services.AddSingleton<IAccessTokenBlacklist, MemoryAccessTokenBlacklist>();
+        services.AddScoped<ICurrentUser, HttpCurrentUser>();
+        if (configuration.GetValue("BackgroundJobs:Enabled", true))
+        {
+            services.AddHostedService<RefreshTokenCleanupService>();
+        }
 
         services.Configure<StorageOptions>(configuration.GetSection(StorageOptions.SectionName));
         services.PostConfigure<StorageOptions>(o => o.RootPath = Path.GetFullPath(o.RootPath, environment.ContentRootPath));

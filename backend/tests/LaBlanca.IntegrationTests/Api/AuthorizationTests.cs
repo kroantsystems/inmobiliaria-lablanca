@@ -100,5 +100,6 @@ public class AuthorizationTests(ApiFactory factory)
     private static bool IsPublicRoute(string route) =>
         route.StartsWith("api/public/", StringComparison.Ordinal)
         || route is "api/auth/login" or "api/auth/refresh"
-        || route.StartsWith("health", StringComparison.Ordinal);
+        || route.StartsWith("health", StringComparison.Ordinal)
+        || route.StartsWith("{*path", StringComparison.Ordinal);
 }

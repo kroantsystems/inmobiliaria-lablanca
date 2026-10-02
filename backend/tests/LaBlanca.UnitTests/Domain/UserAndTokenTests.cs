@@ -51,7 +51,11 @@ public class UserAndTokenTests
     [Fact]
     public void Refresh_token_is_active_until_expired_or_revoked()
     {
-        var token = RefreshToken.Issue(Guid.NewGuid(), "hash-1", Now, TimeSpan.FromDays(7));
+        var user = NewUser();
+        var token = RefreshToken.Issue(user, "hash-1", Now, TimeSpan.FromDays(7));
+
+        token.UserId.Should().Be(user.Id);
+        token.TenantId.Should().Be(user.TenantId);
 
         token.IsActive(Now.AddDays(6)).Should().BeTrue();
         token.IsActive(Now.AddDays(7).AddSeconds(1)).Should().BeFalse();

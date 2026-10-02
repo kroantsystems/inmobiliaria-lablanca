@@ -24,6 +24,11 @@ public static class TestSettings
         builder.UseSetting("Cors:AllowedOrigins:0", FrontendOrigin);
         builder.UseSetting("Storage:RootPath", storageRoot);
         builder.UseSetting("Serilog:MinimumLevel:Default", "Warning");
+        builder.UseSetting("BackgroundJobs:Enabled", "false");
+        // Limites altos para os testes não interferirem entre si; testes de limite usam valores próprios.
+        builder.UseSetting("RateLimiting:Login:PermitLimit", "10000");
+        builder.UseSetting("RateLimiting:PublicForms:PermitLimit", "10000");
+        builder.UseSetting("RateLimiting:Analytics:PermitLimit", "10000");
         return builder;
     }
 }

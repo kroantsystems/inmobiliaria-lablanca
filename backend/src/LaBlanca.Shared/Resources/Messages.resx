@@ -27,4 +27,10 @@
   <data name="Media.NotInProperty" xml:space="preserve"><value>O arquivo não pertence a este anúncio.</value></data>
   <data name="Media.DocumentsArePrivate" xml:space="preserve"><value>Documentos são sempre privados e não podem ser públicos.</value></data>
   <data name="Media.OnlyImagesCanBeCover" xml:space="preserve"><value>Apenas imagens podem ser capa do anúncio.</value></data>
+  <data name="Auth.InvalidCredentials" xml:space="preserve"><value>E-mail ou senha inválidos.</value></data>
+  <data name="Auth.SessionExpired" xml:space="preserve"><value>Sua sessão expirou. Entre novamente.</value></data>
+  <data name="Auth.CurrentPasswordInvalid" xml:space="preserve"><value>A senha atual está incorreta.</value></data>
+  <data name="Auth.PasswordMustDiffer" xml:space="preserve"><value>A nova senha deve ser diferente da atual.</value></data>
+  <data name="Auth.PasswordPolicy" xml:space="preserve"><value>A senha deve ter ao menos {0} caracteres, com letras e números.</value></data>
+  <data name="Auth.UserEmailExists" xml:space="preserve"><value>Já existe um usuário com este e-mail.</value></data>
 </root>
