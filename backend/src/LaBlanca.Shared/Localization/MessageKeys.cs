@@ -30,5 +30,11 @@ public static class MessageKeys
     public const string PropertyZoneNotFound = "Property.ZoneNotFound";
     public const string PropertyOwnerNotFound = "Property.OwnerNotFound";
 
+    public const string FileTypeNotAllowed = "Files.TypeNotAllowed";
+    public const string FileTooLarge = "Files.TooLarge";
+    public const string FileContentMismatch = "Files.ContentMismatch";
+    public const string FileRequired = "Files.Required";
+    public const string LastPublicImage = "Files.LastPublicImage";
+
     public static string ProblemTitle(int statusCode) => $"Problem.Title.{statusCode}";
 }

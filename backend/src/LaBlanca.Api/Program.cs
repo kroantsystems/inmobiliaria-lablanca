@@ -85,6 +85,12 @@ if (knownProxies.Length > 0)
     app.UseForwardedHeaders();
 }
 
+app.Use((context, next) =>
+{
+    context.Response.Headers.XContentTypeOptions = "nosniff";
+    return next(context);
+});
+
 // Antes do tratamento de erros: a cultura definida aqui precisa valer para as respostas de erro.
 app.UseRequestLocalization();
 app.UseExceptionHandler();

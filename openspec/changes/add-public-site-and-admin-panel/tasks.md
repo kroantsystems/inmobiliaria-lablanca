@@ -81,13 +81,13 @@
 
 ## 8. Banco de arquivos (spec `media-library`)
 
-- [ ] 8.1 (TDD) `FileValidationService` com extensões, `Content-Type`, magic bytes e limites configuráveis (imagens 50 MB, vídeos 50 MB, documentos 15 MB)
-- [ ] 8.2 (TDD) `IFileStorage` + `LocalDiskFileStorage` (nome GUID, pasta fora do `wwwroot`, proteção contra caminho malicioso)
-- [ ] 8.3 (TDD) Upload em stream com `[RequestSizeLimit]`/`[RequestFormLimits]` de 55 MB, vínculo opcional a anúncio, descrição e texto alternativo
-- [ ] 8.4 (TDD) Listagem ampla, edição de vínculo/descrição, capa única, reordenação, exclusão (bloqueio 409 da última imagem pública de anúncio publicado)
-- [ ] 8.5 (TDD) Rotas públicas e privadas: `/api/public/media/{id}` só para mídia pública de anúncio publicado (cache longo, `nosniff`); `/api/admin/files/{id}/content` com `attachment`
-- [ ] 8.6 Teste de integração com upload real de imagem de ~50 MB e de arquivo disfarçado
-- [ ] 8.7 Commit da fase
+- [x] 8.1 (TDD) `FileValidationService` com extensões, `Content-Type`, magic bytes e limites configuráveis (imagens 50 MB, vídeos 50 MB, documentos 15 MB)
+- [x] 8.2 (TDD) `IFileStorage` + `LocalDiskFileStorage` (nome GUID, pasta fora do `wwwroot`, proteção contra caminho malicioso)
+- [x] 8.3 (TDD) Upload em stream com `[RequestSizeLimit]`/`[RequestFormLimits]` de 55 MB, vínculo opcional a anúncio, descrição e texto alternativo
+- [x] 8.4 (TDD) Listagem ampla, edição de vínculo/descrição, capa única, reordenação, exclusão (bloqueio 409 da última imagem pública de anúncio publicado)
+- [x] 8.5 (TDD) Rotas públicas e privadas: `/api/public/media/{id}` só para mídia pública de anúncio publicado (cache longo, `nosniff`); `/api/admin/files/{id}/content` com `attachment`
+- [x] 8.6 Teste de integração com upload real de imagem de ~50 MB e de arquivo disfarçado
+- [x] 8.7 Commit da fase
 
 ## 9. Leads, proprietários e agenda
 

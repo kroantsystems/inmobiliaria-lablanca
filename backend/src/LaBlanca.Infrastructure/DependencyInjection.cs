@@ -1,5 +1,7 @@
+using LaBlanca.Application.Abstractions.Files;
 using LaBlanca.Application.Abstractions.Persistence;
 using LaBlanca.Application.Abstractions.Revalidation;
+using LaBlanca.Infrastructure.Files;
 using LaBlanca.Application.Abstractions.Security;
 using LaBlanca.Infrastructure.Authentication;
 using LaBlanca.Infrastructure.Persistence;
@@ -53,6 +55,10 @@ public static class DependencyInjection
         {
             services.AddHostedService<RefreshTokenCleanupService>();
         }
+
+        services.Configure<UploadOptions>(configuration.GetSection(UploadOptions.SectionName));
+        services.AddSingleton<IFileInspector, FileInspector>();
+        services.AddSingleton<IFileStorage, LocalDiskFileStorage>();
 
         services.Configure<StorageOptions>(configuration.GetSection(StorageOptions.SectionName));
         services.PostConfigure<StorageOptions>(o => o.RootPath = Path.GetFullPath(o.RootPath, environment.ContentRootPath));

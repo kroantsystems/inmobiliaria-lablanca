@@ -44,4 +44,9 @@
   <data name="Property.InvalidVideoUrl" xml:space="preserve"><value>Use an HTTPS link from YouTube, Vimeo or an .mp4 file.</value></data>
   <data name="Property.ZoneNotFound" xml:space="preserve"><value>The selected zone does not exist.</value></data>
   <data name="Property.OwnerNotFound" xml:space="preserve"><value>The selected owner does not exist.</value></data>
+  <data name="Files.TypeNotAllowed" xml:space="preserve"><value>File type not allowed. Accepted: {0}.</value></data>
+  <data name="Files.TooLarge" xml:space="preserve"><value>The file exceeds the {0} MB limit.</value></data>
+  <data name="Files.ContentMismatch" xml:space="preserve"><value>The file content does not match its type.</value></data>
+  <data name="Files.Required" xml:space="preserve"><value>Select a file.</value></data>
+  <data name="Files.LastPublicImage" xml:space="preserve"><value>This listing is published and needs at least one public image.</value></data>
 </root>
