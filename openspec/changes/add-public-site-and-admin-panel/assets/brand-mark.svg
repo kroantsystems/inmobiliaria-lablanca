@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 58" role="img" aria-label="La Blanca">
+  <defs>
+    <mask id="lb-building-cut">
+      <rect x="1" y="1" width="35" height="48" rx="4" fill="#fff"/>
+      <g fill="#000">
+        <rect x="8" y="12" width="5" height="5"/>
+        <rect x="16" y="12" width="5" height="5"/>
+        <rect x="24" y="12" width="5" height="5"/>
+        <rect x="8" y="23" width="5" height="5"/>
+        <rect x="16" y="23" width="5" height="5"/>
+        <rect x="24" y="23" width="5" height="5"/>
+        <path d="M15.5 49V38.5a3 3 0 0 1 6 0V49z"/>
+      </g>
+    </mask>
+  </defs>
+  <rect x="1" y="1" width="35" height="48" rx="4" fill="#FFFFFF" mask="url(#lb-building-cut)"/>
+  <g fill="#E31B23">
+    <path d="M35 29.5 52.5 45H48v12h-9v-6.5h-7.5V57h-9V45h-5z"/>
+    <rect x="42" y="31" width="5" height="9"/>
+  </g>
+</svg>
