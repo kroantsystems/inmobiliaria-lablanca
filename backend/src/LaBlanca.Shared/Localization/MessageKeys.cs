@@ -26,5 +26,9 @@ public static class MessageKeys
     public const string ZoneSlugExists = "Zone.SlugExists";
     public const string ZoneInUse = "Zone.InUse";
 
+    public const string InvalidVideoUrl = "Property.InvalidVideoUrl";
+    public const string PropertyZoneNotFound = "Property.ZoneNotFound";
+    public const string PropertyOwnerNotFound = "Property.OwnerNotFound";
+
     public static string ProblemTitle(int statusCode) => $"Problem.Title.{statusCode}";
 }

@@ -1,7 +1,9 @@
 using LaBlanca.Application.Abstractions.Persistence;
+using LaBlanca.Application.Abstractions.Revalidation;
 using LaBlanca.Application.Abstractions.Security;
 using LaBlanca.Infrastructure.Authentication;
 using LaBlanca.Infrastructure.Persistence;
+using LaBlanca.Infrastructure.Revalidation;
 using LaBlanca.Infrastructure.Storage;
 using LaBlanca.Infrastructure.Tenancy;
 using Microsoft.EntityFrameworkCore;
@@ -41,6 +43,12 @@ public static class DependencyInjection
         services.AddSingleton<ITokenService, JwtTokenService>();
         services.AddSingleton<IAccessTokenBlacklist, MemoryAccessTokenBlacklist>();
         services.AddScoped<ICurrentUser, HttpCurrentUser>();
+        services.Configure<SiteOptions>(configuration.GetSection(SiteOptions.SectionName));
+        services.AddHttpClient(SiteRevalidationDispatcher.HttpClientName, c => c.Timeout = TimeSpan.FromSeconds(10));
+        services.AddSingleton<SiteRevalidationDispatcher>();
+        services.TryAddSingleton<IRevalidationDispatcher>(sp => sp.GetRequiredService<SiteRevalidationDispatcher>());
+        services.AddHostedService(sp => sp.GetRequiredService<SiteRevalidationDispatcher>());
+
         if (configuration.GetValue("BackgroundJobs:Enabled", true))
         {
             services.AddHostedService<RefreshTokenCleanupService>();

@@ -1,6 +1,7 @@
 using System.Globalization;
 using FluentValidation;
 using FluentValidation.Resources;
+using LaBlanca.Application.Abstractions.Revalidation;
 using LaBlanca.Application.Behaviors;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -17,11 +18,14 @@ public static class DependencyInjection
             cfg.RegisterServicesFromAssembly(assembly);
             cfg.AddOpenBehavior(typeof(LoggingBehavior<,>));
             cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
+            cfg.AddOpenBehavior(typeof(RevalidationBehavior<,>));
             cfg.AddOpenBehavior(typeof(TransactionBehavior<,>));
         });
 
         services.AddValidatorsFromAssembly(assembly, includeInternalTypes: true);
         services.AddScoped<Features.Auth.AuthSessionIssuer>();
+        services.AddScoped<RevalidationNotifier>();
+        services.AddScoped<IRevalidationNotifier>(sp => sp.GetRequiredService<RevalidationNotifier>());
         ValidatorOptions.Global.LanguageManager = new AppLanguageManager();
 
         return services;

@@ -1,6 +1,7 @@
 using FluentValidation;
 using LaBlanca.Application.Abstractions.Messaging;
 using LaBlanca.Application.Abstractions.Persistence;
+using LaBlanca.Application.Abstractions.Revalidation;
 using LaBlanca.Application.Common;
 using LaBlanca.Application.Features.Zones;
 using LaBlanca.Domain.Settings;
@@ -124,7 +125,7 @@ public sealed class UpdateSettingsCommandValidator : AbstractValidator<UpdateSet
     }
 }
 
-public sealed class UpdateSettingsCommandHandler(IAppDbContext db, ITenantContext tenant, TimeProvider clock)
+public sealed class UpdateSettingsCommandHandler(IAppDbContext db, ITenantContext tenant, TimeProvider clock, IRevalidationNotifier revalidation)
     : IRequestHandler<UpdateSettingsCommand, AdminSettingsDto>
 {
     public async Task<AdminSettingsDto> Handle(UpdateSettingsCommand c, CancellationToken cancellationToken)
@@ -141,6 +142,7 @@ public sealed class UpdateSettingsCommandHandler(IAppDbContext db, ITenantContex
             c.OfficeLongitude, c.OpeningHours, c.FacebookUrl, c.InstagramUrl, c.TiktokUrl, c.YoutubeUrl));
         settings.UpdateRates(c.PygPerUsd, c.BrlPerUsd, now);
         settings.UpdateBusiness(c.SimulatorAnnualRate, c.MonthlySalesGoal);
+        revalidation.Request(CacheTags.Settings, CacheTags.Llms);
         return settings.ToAdminDto();
     }
 }

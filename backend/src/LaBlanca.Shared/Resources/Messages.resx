@@ -41,4 +41,7 @@
   <data name="Validation.DuplicatedLocale" xml:space="preserve"><value>Cada idioma pode aparecer apenas uma vez.</value></data>
   <data name="Zone.SlugExists" xml:space="preserve"><value>Já existe uma zona com este identificador.</value></data>
   <data name="Zone.InUse" xml:space="preserve"><value>A zona está em uso por anúncios e não pode ser excluída.</value></data>
+  <data name="Property.InvalidVideoUrl" xml:space="preserve"><value>Use um link HTTPS do YouTube, do Vimeo ou de um arquivo .mp4.</value></data>
+  <data name="Property.ZoneNotFound" xml:space="preserve"><value>A zona informada não existe.</value></data>
+  <data name="Property.OwnerNotFound" xml:space="preserve"><value>O proprietário informado não existe.</value></data>
 </root>

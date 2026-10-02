@@ -1,6 +1,7 @@
 using FluentValidation;
 using LaBlanca.Application.Abstractions.Messaging;
 using LaBlanca.Application.Abstractions.Persistence;
+using LaBlanca.Application.Abstractions.Revalidation;
 using LaBlanca.Application.Common;
 using LaBlanca.Domain.Common;
 using LaBlanca.Domain.Properties;
@@ -94,7 +95,7 @@ public sealed class SaveZoneCommandValidator : AbstractValidator<SaveZoneCommand
     }
 }
 
-public sealed class SaveZoneCommandHandler(IAppDbContext db) : IRequestHandler<SaveZoneCommand, AdminZoneDto>
+public sealed class SaveZoneCommandHandler(IAppDbContext db, IRevalidationNotifier revalidation) : IRequestHandler<SaveZoneCommand, AdminZoneDto>
 {
     public async Task<AdminZoneDto> Handle(SaveZoneCommand request, CancellationToken cancellationToken)
     {
@@ -128,6 +129,7 @@ public sealed class SaveZoneCommandHandler(IAppDbContext db) : IRequestHandler<S
             zone.SetTranslation(translation.Locale, translation.Name, translation.Description);
         }
 
+        revalidation.Request(CacheTags.Zones, CacheTags.Settings, CacheTags.Sitemap, CacheTags.Llms);
         var count = request.Id is null ? 0 : await db.Properties.CountAsync(p => p.ZoneId == zone.Id, cancellationToken);
         return new AdminZoneDto(zone.Id, zone.Slug, zone.City, zone.SortOrder,
             [.. zone.Translations.Select(t => new ZoneTranslationDto(t.Locale, t.Name, t.Description))], count);
@@ -136,7 +138,7 @@ public sealed class SaveZoneCommandHandler(IAppDbContext db) : IRequestHandler<S
 
 public sealed record DeleteZoneCommand(Guid Id) : ICommand;
 
-public sealed class DeleteZoneCommandHandler(IAppDbContext db) : IRequestHandler<DeleteZoneCommand>
+public sealed class DeleteZoneCommandHandler(IAppDbContext db, IRevalidationNotifier revalidation) : IRequestHandler<DeleteZoneCommand>
 {
     public async Task Handle(DeleteZoneCommand request, CancellationToken cancellationToken)
     {
@@ -147,5 +149,6 @@ public sealed class DeleteZoneCommandHandler(IAppDbContext db) : IRequestHandler
         }
 
         db.Zones.Remove(zone);
+        revalidation.Request(CacheTags.Zones, CacheTags.Settings, CacheTags.Sitemap, CacheTags.Llms);
     }
 }

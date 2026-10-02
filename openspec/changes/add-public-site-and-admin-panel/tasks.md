@@ -70,14 +70,14 @@
 
 ## 7. Anúncios (spec `property-listings`)
 
-- [ ] 7.1 (TDD) `CreateProperty`/`UpdateProperty` com validadores (tradução `es` obrigatória, preço > 0, coordenadas, link de vídeo YouTube/Vimeo/MP4 HTTPS, zona existente)
-- [ ] 7.2 (TDD) Commands de publicar, despublicar, destacar, mudar status e arquivar
-- [ ] 7.3 (TDD) Query administrativa ampla (até 500 itens, todos os status) e detalhe para edição
-- [ ] 7.4 (TDD) Busca pública com filtros, ordenação, paginação limitada a 24 e exclusão de rascunhos/arquivados
-- [ ] 7.5 (TDD) Detalhe público por `{locale}/{slug}` com fallback para `es`, idioma efetivo e mapa de slugs por idioma; destaques com fallback para mais recentes
-- [ ] 7.6 (TDD) `IRevalidationNotifier` com fila (`Channel`) e envio após commit para `POST {Site:RevalidateUrl}` com segredo; falha só gera log
-- [ ] 7.7 `AdminPropertiesController` e `PublicPropertiesController` com permissões `properties.read`/`properties.write`
-- [ ] 7.8 Commit da fase
+- [x] 7.1 (TDD) `CreateProperty`/`UpdateProperty` com validadores (tradução `es` obrigatória, preço > 0, coordenadas, link de vídeo YouTube/Vimeo/MP4 HTTPS, zona existente)
+- [x] 7.2 (TDD) Commands de publicar, despublicar, destacar, mudar status e arquivar
+- [x] 7.3 (TDD) Query administrativa ampla (até 500 itens, todos os status) e detalhe para edição
+- [x] 7.4 (TDD) Busca pública com filtros, ordenação, paginação limitada a 24 e exclusão de rascunhos/arquivados
+- [x] 7.5 (TDD) Detalhe público por `{locale}/{slug}` com fallback para `es`, idioma efetivo e mapa de slugs por idioma; destaques com fallback para mais recentes
+- [x] 7.6 (TDD) `IRevalidationNotifier` com fila (`Channel`) e envio após commit para `POST {Site:RevalidateUrl}` com segredo; falha só gera log
+- [x] 7.7 `AdminPropertiesController` e `PublicPropertiesController` com permissões `properties.read`/`properties.write`
+- [x] 7.8 Commit da fase
 
 ## 8. Banco de arquivos (spec `media-library`)
 
