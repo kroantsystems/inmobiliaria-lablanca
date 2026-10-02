@@ -21,4 +21,10 @@
   <data name="Error.Unauthorized" xml:space="preserve"><value>É necessário estar autenticado.</value></data>
   <data name="Error.Forbidden" xml:space="preserve"><value>Você não tem permissão para esta ação.</value></data>
   <data name="Error.TooManyRequests" xml:space="preserve"><value>Muitas requisições. Aguarde um pouco e tente novamente.</value></data>
+  <data name="Property.MustBeAvailableToPublish" xml:space="preserve"><value>O anúncio precisa estar Disponível ou Reservado para ser publicado.</value></data>
+  <data name="Property.PublishRequiresImage" xml:space="preserve"><value>O anúncio precisa de ao menos uma imagem pública para ser publicado.</value></data>
+  <data name="Property.MustBePublishedToFeature" xml:space="preserve"><value>Só anúncios publicados e disponíveis podem ser destacados.</value></data>
+  <data name="Media.NotInProperty" xml:space="preserve"><value>O arquivo não pertence a este anúncio.</value></data>
+  <data name="Media.DocumentsArePrivate" xml:space="preserve"><value>Documentos são sempre privados e não podem ser públicos.</value></data>
+  <data name="Media.OnlyImagesCanBeCover" xml:space="preserve"><value>Apenas imagens podem ser capa do anúncio.</value></data>
 </root>

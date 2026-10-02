@@ -37,15 +37,15 @@
 
 ## 4. Domínio e persistência
 
-- [ ] 4.1 (TDD) Entidades base `Entity`/`TenantEntity`, `Tenant`, `User`, `RefreshToken` com regras de bloqueio (5 falhas → 15 min) e revogação
-- [ ] 4.2 (TDD) `Zone`/`ZoneTranslation`, `Property`/`PropertyTranslation` com regras de status, publicação (exige imagem pública), datas de venda/aluguel e destaque
-- [ ] 4.3 (TDD) Gerador de slug (sem acentos, minúsculo, sufixo numérico para repetição)
-- [ ] 4.4 (TDD) `MediaFile` (capa única por anúncio, ordem), `Lead` (status e origens), `Owner`, `Visit` (sobreposição de horário, status), `AnalyticsEvent`, `SiteSettings`
-- [ ] 4.5 Configurações EF (tipos `numeric(18,2)`, `timestamptz`, `jsonb` para características, enums como texto, índices do design) e `IAppDbContext` na Application
-- [ ] 4.6 (TDD) `ITenantContext` (claim `tenant_id` ou `Site:TenantSlug`), filtro global por tenant e interceptor que preenche/bloqueia `TenantId`; teste de integração de isolamento entre dois tenants
-- [ ] 4.7 (TDD) Teste de integração de segurança do Supabase: todas as tabelas do schema `lablanca` com Row Level Security habilitado e papel `anon` simulado (com `SELECT` concedido) sem acesso a nenhuma linha
-- [ ] 4.8 Gerar migração `InitialSchema` em `LaBlanca.Migrations` com `ENABLE ROW LEVEL SECURITY` em todas as tabelas, seed do tenant La Blanca, configurações padrão e zonas iniciais (Paraná Country Club, Centro CDE, Km 8 / Km 10, Área 1 / Área 4, Hernandarias); helper de migração que habilita RLS para usar nas próximas
-- [ ] 4.9 Commit da fase
+- [x] 4.1 (TDD) Entidades base `Entity`/`TenantEntity`, `Tenant`, `User`, `RefreshToken` com regras de bloqueio (5 falhas → 15 min) e revogação
+- [x] 4.2 (TDD) `Zone`/`ZoneTranslation`, `Property`/`PropertyTranslation` com regras de status, publicação (exige imagem pública), datas de venda/aluguel e destaque
+- [x] 4.3 (TDD) Gerador de slug (sem acentos, minúsculo, sufixo numérico para repetição)
+- [x] 4.4 (TDD) `MediaFile` (capa única por anúncio, ordem), `Lead` (status e origens), `Owner`, `Visit` (sobreposição de horário, status), `AnalyticsEvent`, `SiteSettings`
+- [x] 4.5 Configurações EF (tipos `numeric(18,2)`, `timestamptz`, `jsonb` para características, enums como texto, índices do design) e `IAppDbContext` na Application
+- [x] 4.6 (TDD) `ITenantContext` (claim `tenant_id` ou `Site:TenantId`), filtro global por tenant e interceptor que preenche/bloqueia `TenantId`; teste de integração de isolamento entre dois tenants
+- [x] 4.7 (TDD) Teste de integração de segurança do Supabase: todas as tabelas do schema `lablanca` com Row Level Security habilitado e papel `anon` simulado (com `SELECT` concedido) sem acesso a nenhuma linha
+- [x] 4.8 Gerar migração `InitialSchema` em `LaBlanca.Migrations` com `ENABLE ROW LEVEL SECURITY` em todas as tabelas, seed do tenant La Blanca, configurações padrão e zonas iniciais (Paraná Country Club, Centro CDE, Km 8 / Km 10, Área 1 / Área 4, Hernandarias); helper de migração que habilita RLS para usar nas próximas
+- [x] 4.9 Commit da fase
 
 ## 5. Autenticação (spec `admin-auth`)
 

@@ -65,7 +65,8 @@ public sealed class ApiFactory : WebApplicationFactory<Program>, IAsyncLifetime
         {
             DbAdapter = DbAdapter.Postgres,
             SchemasToInclude = [AppDbContext.Schema],
-            TablesToIgnore = ["__EFMigrationsHistory"],
+            // Tabelas com seed: testes que as alteram devem restaurar o estado (ou criar registros próprios).
+            TablesToIgnore = ["__EFMigrationsHistory", "Tenants", "Zones", "ZoneTranslations", "SiteSettings"],
         });
 
         await _respawner.ResetAsync(connection);

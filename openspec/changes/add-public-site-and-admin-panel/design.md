@@ -82,7 +82,7 @@ Ordem: `LoggingBehavior` → `ValidationBehavior` (executa todos os `IValidator<
 Alternativa considerada: chamar a API direto do navegador com CORS e `SameSite=None`. Descartada porque navegadores estão bloqueando cookies de terceiros e porque a API ficaria exposta em outro domínio para o login.
 
 ### 7. Multi-tenant
-Toda entidade de negócio herda `TenantEntity` (`TenantId`). `AppDbContext` aplica filtro global `e.TenantId == _tenant.TenantId`. `ITenantContext` resolve o tenant pela claim `tenant_id` nas rotas autenticadas e por `Site:TenantSlug` (configuração) nas rotas públicas. Na gravação, um interceptor do `SaveChanges` preenche `TenantId` e bloqueia alteração de tenant. Índices únicos incluem `TenantId` (e-mail do usuário, slug, zona). O tenant La Blanca é criado na migração de dados inicial (seed).
+Toda entidade de negócio herda `TenantEntity` (`TenantId`). `AppDbContext` aplica filtro global `e.TenantId == _tenant.TenantId`. `ITenantContext` resolve o tenant pela claim `tenant_id` nas rotas autenticadas e por `Site:TenantId` (configuração, Guid fixo do seed) nas rotas públicas. Na gravação, um interceptor do `SaveChanges` preenche `TenantId` e bloqueia alteração de tenant. Índices únicos incluem `TenantId` (e-mail do usuário, slug, zona). O tenant La Blanca é criado na migração de dados inicial (seed).
 
 ### 8. Modelo de dados
 | Entidade | Campos principais |
