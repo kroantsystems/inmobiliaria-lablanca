@@ -33,4 +33,12 @@
   <data name="Auth.PasswordMustDiffer" xml:space="preserve"><value>The new password must be different from the current one.</value></data>
   <data name="Auth.PasswordPolicy" xml:space="preserve"><value>The password must have at least {0} characters, including letters and numbers.</value></data>
   <data name="Auth.UserEmailExists" xml:space="preserve"><value>A user with this email already exists.</value></data>
+  <data name="Validation.UnsupportedLocale" xml:space="preserve"><value>Unsupported language. Use es, pt, en or gn.</value></data>
+  <data name="Validation.InternationalPhone" xml:space="preserve"><value>Use the international format with + and digits only, for example +595981123456.</value></data>
+  <data name="Validation.InvalidUrl" xml:space="preserve"><value>Enter a full web address starting with https://.</value></data>
+  <data name="Validation.InvalidSlug" xml:space="preserve"><value>Use only lowercase letters, numbers and hyphens.</value></data>
+  <data name="Validation.SpanishTranslationRequired" xml:space="preserve"><value>Spanish content is required.</value></data>
+  <data name="Validation.DuplicatedLocale" xml:space="preserve"><value>Each language can appear only once.</value></data>
+  <data name="Zone.SlugExists" xml:space="preserve"><value>A zone with this identifier already exists.</value></data>
+  <data name="Zone.InUse" xml:space="preserve"><value>The zone is used by listings and cannot be deleted.</value></data>
 </root>

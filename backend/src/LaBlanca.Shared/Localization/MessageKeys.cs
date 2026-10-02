@@ -16,5 +16,15 @@ public static class MessageKeys
     public const string PasswordPolicy = "Auth.PasswordPolicy";
     public const string UserEmailExists = "Auth.UserEmailExists";
 
+    public const string UnsupportedLocale = "Validation.UnsupportedLocale";
+    public const string InternationalPhone = "Validation.InternationalPhone";
+    public const string InvalidUrl = "Validation.InvalidUrl";
+    public const string InvalidSlug = "Validation.InvalidSlug";
+    public const string SpanishTranslationRequired = "Validation.SpanishTranslationRequired";
+    public const string DuplicatedLocale = "Validation.DuplicatedLocale";
+
+    public const string ZoneSlugExists = "Zone.SlugExists";
+    public const string ZoneInUse = "Zone.InUse";
+
     public static string ProblemTitle(int statusCode) => $"Problem.Title.{statusCode}";
 }

@@ -35,7 +35,7 @@ public static class TestSettings
 
 public static class TestTokens
 {
-    public static readonly Guid TenantId = Guid.Parse("11111111-1111-1111-1111-111111111111");
+    public static readonly Guid TenantId = LaBlanca.Infrastructure.Persistence.Seed.SeedData.LaBlancaTenantId;
 
     public static string Create(IEnumerable<string>? permissions = null, Guid? tenantId = null, DateTime? expires = null)
     {

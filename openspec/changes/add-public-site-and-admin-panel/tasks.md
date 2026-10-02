@@ -63,10 +63,10 @@
 
 ## 6. Configurações e zonas (spec `site-settings`)
 
-- [ ] 6.1 (TDD) Queries/Commands de configurações (validação do WhatsApp internacional, cotações > 0, taxa do simulador, meta)
-- [ ] 6.2 (TDD) CRUD de zonas com traduções e bloqueio de exclusão em uso (409)
-- [ ] 6.3 (TDD) `AdminSettingsController`, `AdminZonesController` e `PublicSettingsController` (sem meta de vendas na resposta pública)
-- [ ] 6.4 Commit da fase
+- [x] 6.1 (TDD) Queries/Commands de configurações (validação do WhatsApp internacional, cotações > 0, taxa do simulador, meta)
+- [x] 6.2 (TDD) CRUD de zonas com traduções e bloqueio de exclusão em uso (409)
+- [x] 6.3 (TDD) `AdminSettingsController`, `AdminZonesController` e `PublicSettingsController` (sem meta de vendas na resposta pública)
+- [x] 6.4 Commit da fase
 
 ## 7. Anúncios (spec `property-listings`)
 

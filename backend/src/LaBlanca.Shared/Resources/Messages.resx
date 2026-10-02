@@ -33,4 +33,12 @@
   <data name="Auth.PasswordMustDiffer" xml:space="preserve"><value>A nova senha deve ser diferente da atual.</value></data>
   <data name="Auth.PasswordPolicy" xml:space="preserve"><value>A senha deve ter ao menos {0} caracteres, com letras e números.</value></data>
   <data name="Auth.UserEmailExists" xml:space="preserve"><value>Já existe um usuário com este e-mail.</value></data>
+  <data name="Validation.UnsupportedLocale" xml:space="preserve"><value>Idioma não suportado. Use es, pt, en ou gn.</value></data>
+  <data name="Validation.InternationalPhone" xml:space="preserve"><value>Use o formato internacional com + e apenas números, por exemplo +595981123456.</value></data>
+  <data name="Validation.InvalidUrl" xml:space="preserve"><value>Informe um endereço web completo, começando com https://.</value></data>
+  <data name="Validation.InvalidSlug" xml:space="preserve"><value>Use apenas letras minúsculas, números e hífens.</value></data>
+  <data name="Validation.SpanishTranslationRequired" xml:space="preserve"><value>O conteúdo em espanhol é obrigatório.</value></data>
+  <data name="Validation.DuplicatedLocale" xml:space="preserve"><value>Cada idioma pode aparecer apenas uma vez.</value></data>
+  <data name="Zone.SlugExists" xml:space="preserve"><value>Já existe uma zona com este identificador.</value></data>
+  <data name="Zone.InUse" xml:space="preserve"><value>A zona está em uso por anúncios e não pode ser excluída.</value></data>
 </root>
