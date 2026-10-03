@@ -156,7 +156,9 @@
 - [x] 13.8 `opengraph-image.tsx` por anúncio (1200×630, capa, título, preço, logo)
 - [x] 13.9 Tags de cache por anúncio, listagem, zona, configurações e sitemap ligadas às notificações da API
 - [ ] 13.10 Auditoria Lighthouse móvel no build de produção (home, catálogo, anúncio): SEO ≥ 95, desempenho ≥ 90, CLS ≤ 0,1, LCP ≤ 2,5 s; corrigir o que faltar
+  - Situação (02/10/2026): SEO, acessibilidade e boas práticas 100, CLS 0, desempenho 87–91; LCP simulado 3,5–3,9 s ainda acima de 2,5 s (resultados e próximos passos no README).
 - [ ] 13.11 Validar JSON-LD de um anúncio no Rich Results Test e registrar o resultado no README
+  - Pendente: exige URL pública (depois do deploy).
 - [x] 13.12 Commit da fase
 
 ## 14. Painel administrativo (spec `admin-panel`)
@@ -176,9 +178,10 @@
 
 ## 15. Fechamento
 
-- [ ] 15.1 Atualizar `README.md` (novos projetos, variáveis de ambiente, criação de admin, comandos de teste de unidade/integração/frontend, requisito de Docker para integração)
-- [ ] 15.2 Seção de produção no README: Supabase (região, Data API desativada, pooler em modo sessão, `SSL Mode=VerifyFull` com certificado CA, `Maximum Pool Size`, geração e execução de `dotnet ef migrations bundle`, `create-admin`)
-- [ ] 15.3 Rodar verificação completa: `dotnet build`, `dotnet test`, `npm run lint`, `npm run test`, `npm run build`
-- [ ] 15.4 Passar pelo fluxo real no navegador: visitante busca, abre anúncio, envia visita; admin faz login pelo modal, vê o lead no painel, agenda a visita, publica anúncio novo e confere a página e o sitemap atualizados; conferir logo e favicon em tema claro e escuro
-- [ ] 15.5 Registrar no `design.md` as respostas obtidas para as perguntas em aberto (vetor da marca, domínio, hospedagem, plano/região do Supabase, dados reais, tradutor de guarani)
+- [x] 15.1 Atualizar `README.md` (novos projetos, variáveis de ambiente, criação de admin, comandos de teste de unidade/integração/frontend, requisito de Docker para integração)
+- [x] 15.2 Seção de produção no README: Supabase (região, Data API desativada, pooler em modo sessão, `SSL Mode=VerifyFull` com certificado CA, `Maximum Pool Size`, geração e execução de `dotnet ef migrations bundle`, `create-admin`)
+- [x] 15.3 Rodar verificação completa: `dotnet build`, `dotnet test`, `npm run lint`, `npm run test`, `npm run build`
+- [x] 15.4 Passar pelo fluxo real no navegador: visitante busca, abre anúncio, envia visita; admin faz login pelo modal, vê o lead no painel, agenda a visita, publica anúncio novo e confere a página e o sitemap atualizados; conferir logo e favicon em tema claro e escuro
+- [x] 15.5 Registrar no `design.md` as respostas obtidas para as perguntas em aberto (vetor da marca, domínio, hospedagem, plano/região do Supabase, dados reais, tradutor de guarani)
 - [ ] 15.6 Commit final e push para o GitHub (com confirmação do usuário)
+  - Commits locais feitos; push aguardando confirmação.

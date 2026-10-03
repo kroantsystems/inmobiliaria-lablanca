@@ -170,6 +170,12 @@ Eventos gravados em tabela própria em vez de Google Analytics: não exige banne
 - **Ícone**: o original de 50×58 px é pequeno demais para 180/512 px e tinha o beiral do telhado cortado na borda. Foi redesenhado em SVG a partir do mapa de pixels (`brand-mark.svg`, viewBox 54×58, janelas e porta vazadas por máscara). `favicon.svg` é a mesma forma com o prédio azul `#005DAA` no tema claro e branco no tema escuro (`prefers-color-scheme`), para não sumir em abas claras sem precisar de fundo. ICO, apple-touch-icon e ícones 192/512 (opacos por exigência das plataformas) são gerados com `sharp` a partir do SVG, sobre fundo azul.
 - **Cores do tema**: mantidos os tokens do protótipo (`#E31B23`, `#005DAA`), agora usados também na logo e no ícone, para que marca e interface tenham exatamente as mesmas cores.
 
+### 18. Ajustes descobertos na implementação
+- **Uploads direto para a API**: um arquivo de ~45 MB pelo rewrite `/api` do Next estourou o tempo limite do proxy (30 s) e chegou truncado; direto na API levou menos de 1 s. O painel envia para `NEXT_PUBLIC_API_UPLOAD_URL` com o token no cabeçalho; a API libera a origem do site no CORS e a CSP do site inclui essa origem em `connect-src`. As demais chamadas continuam pela mesma origem.
+- **Imagens de rascunhos no painel**: a rota pública de mídia só serve anúncios publicados; o painel carrega as fotos de anúncios não publicados pela rota autenticada (`/api/admin/files/{id}/content`) como blob.
+- **Peso das páginas públicas**: o formulário público usa `zod/mini` e `fetch` (sem Axios); o login, que usa a sessão com Axios, é carregado só quando o modal abre; o cliente recebe só os namespaces de mensagens usados no site; CSS embutido (`experimental.inlineCss`) e fontes variáveis, com a Fredoka sem pré-carregamento.
+- **404 do anúncio**: o `not-found.tsx` do anúncio é componente de cliente. No servidor ele seria renderizado junto com a página estática (ISR) e ler o idioma exigiria `headers()`, o que derrubava a página com erro 500 em produção.
+
 ## Risks / Trade-offs
 
 - [MediatR 12 não recebe mais correções da linha aberta] → versão fixada em `Directory.Packages.props`, uso restrito a `ISender`/`IPipelineBehavior`; auditoria do NuGet ativa e com aviso tratado como erro, de modo que uma vulnerabilidade nova quebra o build.
@@ -214,3 +220,12 @@ Primeiro deploy no Supabase (quando a hospedagem estiver definida):
 - **Tradutor de guarani**: quem revisa os textos?
 - **Política de privacidade**: texto jurídico a ser fornecido ou validado pela imobiliária, considerando a legislação paraguaia de proteção de dados e a LGPD para visitantes brasileiros.
 - **Quantos admins** iniciais e com quais e-mails.
+
+### Situação em 2 de outubro de 2026
+- Vetor da marca: **pendente**; seguem em uso as versões tratadas da foto e o ícone redesenhado.
+- Domínio e hospedagem: **pendentes**; `NEXT_PUBLIC_SITE_URL` e a origem de upload precisam ser definidos antes do build de produção.
+- Supabase: **decidido** como banco de produção (só PostgreSQL); plano **pendente**, região recomendada São Paulo. Supabase Storage segue fora do escopo.
+- Dados reais: **pendentes**; o painel permite editá-los em Configurações. Os números institucionais continuam provisórios nos arquivos de mensagens.
+- Tradutor de guarani: **pendente**; `frontend/gn-pending.md` lista as chaves ainda em espanhol.
+- Política de privacidade: rascunho publicado nos quatro idiomas; **revisão jurídica pendente**. As respostas das perguntas frequentes também precisam de conferência da imobiliária.
+- Admins iniciais: **pendente**; criados com `LaBlanca.Tools create-admin`.
