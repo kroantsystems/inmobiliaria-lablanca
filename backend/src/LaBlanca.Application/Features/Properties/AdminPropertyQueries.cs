@@ -56,11 +56,12 @@ public sealed class GetAdminPropertiesQueryHandler(IAppDbContext db) : IRequestH
         var items = properties.Select(p =>
         {
             var t = p.Translation(Locales.Default);
-            var cover = p.Media.Where(m => m.Kind == MediaKind.Image).OrderByDescending(m => m.IsCover).ThenBy(m => m.SortOrder).FirstOrDefault();
+            // Miniatura da lista: só imagem pública (a URL do admin exige token e não serve em <img>).
+            var cover = p.Media.Where(m => m.Kind == MediaKind.Image && m.IsPublic).OrderByDescending(m => m.IsCover).ThenBy(m => m.SortOrder).FirstOrDefault();
             return new AdminPropertyListItem(
                 p.Id, t.Title, t.Slug, p.Operation, p.Type, p.Status, p.IsPublished, p.IsFeatured, p.Price, p.Currency, p.ZoneId,
                 zoneNames.GetValueOrDefault(p.ZoneId), p.City, p.Bedrooms, p.Bathrooms, p.BuiltAreaM2,
-                cover is null ? null : MediaUrls.Admin(cover.Id), p.Media.Count, p.OwnerId,
+                cover is null ? null : MediaUrls.Public(cover.Id), p.Media.Count, p.OwnerId,
                 p.OwnerId is { } ownerId ? ownerNames.GetValueOrDefault(ownerId) : null,
                 p.PublishedAt, p.CreatedAt, p.UpdatedAt);
         }).ToList();

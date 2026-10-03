@@ -189,6 +189,18 @@ public class FilesTests(ApiFactory factory) : IAsyncLifetime
     }
 
     [Fact]
+    public async Task Admin_list_thumbnail_uses_the_public_url_of_a_public_image()
+    {
+        var propertyId = await CreatePropertyAsync();
+        await IdOf(await UploadAsync(FileOf(PngHeader, 1024), "privada.png", "image/png", propertyId, isPublic: false));
+        var visible = await IdOf(await UploadAsync(FileOf(PngHeader, 1024), "fachada.png", "image/png", propertyId));
+
+        var list = await Admin.GetFromJsonAsync<JsonElement>("/api/admin/properties");
+
+        list.GetProperty("items")[0].GetProperty("coverUrl").GetString().Should().Be($"/api/public/media/{visible}");
+    }
+
+    [Fact]
     public async Task Last_public_image_of_published_property_cannot_be_deleted()
     {
         var propertyId = await CreatePropertyAsync();
