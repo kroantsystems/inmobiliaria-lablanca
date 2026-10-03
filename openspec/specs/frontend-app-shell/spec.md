@@ -15,21 +15,33 @@ O sistema SHALL fornecer uma aplicação Next.js (App Router, TypeScript, Tailwi
 - **THEN** o build termina com sucesso, sem erros de TypeScript ou ESLint
 
 ### Requirement: Layout base do site
-A aplicação SHALL renderizar um layout comum a todas as páginas contendo cabeçalho com o nome "La Blanca" e navegação, e rodapé com informações de contato placeholder.
+A aplicação SHALL renderizar, para cada idioma em `src/app/[locale]/`, um layout público comum com barra superior, cabeçalho com a marca "La Blanca" e navegação, rodapé e botão flutuante de WhatsApp, e um layout separado para o painel em `/[locale]/admin`.
 
 #### Scenario: Página inicial exibe layout
-- **WHEN** o usuário acessa `/`
-- **THEN** a página exibe cabeçalho, conteúdo placeholder da home e rodapé
-- **AND** o documento possui `lang="pt-BR"` e título com "La Blanca"
+- **WHEN** o usuário acessa `/es`
+- **THEN** a página exibe barra superior, cabeçalho, conteúdo da home e rodapé
+- **AND** o documento possui `lang="es"` e título com "La Blanca"
+
+#### Scenario: Layout do painel separado
+- **WHEN** o admin acessa `/es/admin`
+- **THEN** a página usa o layout do painel, sem cabeçalho, rodapé nem WhatsApp do site público
 
 ### Requirement: Configuração de acesso à API
-A aplicação SHALL ler a URL base da API da variável de ambiente `NEXT_PUBLIC_API_URL` e expor um cliente HTTP único reutilizável pelas páginas.
+O navegador SHALL chamar a API sempre pela mesma origem do site, em `/api/*`, que o Next.js repassa para a API .NET configurada em `API_INTERNAL_URL`. Componentes de servidor SHALL chamar a API diretamente por `API_INTERNAL_URL`. A aplicação SHALL expor um único cliente Axios para o navegador e um único cliente de servidor.
 
 #### Scenario: URL da API configurada
-- **WHEN** `NEXT_PUBLIC_API_URL` está definida em `.env.local`
-- **THEN** as requisições do cliente HTTP usam essa URL como base
+- **WHEN** `API_INTERNAL_URL` está definida em `.env.local`
+- **THEN** os componentes de servidor e o repasse de `/api/*` usam essa URL como base, e o navegador nunca recebe esse endereço
+
+#### Scenario: Chamada pelo navegador
+- **WHEN** o painel faz `GET /api/admin/leads`
+- **THEN** a requisição sai para a origem do site e o Next.js a encaminha para `API_INTERNAL_URL`
+
+#### Scenario: Cookie de refresh de primeira parte
+- **WHEN** o login é feito pelo navegador
+- **THEN** o cookie de refresh pertence ao domínio do site, não ao domínio da API
 
 #### Scenario: Exemplo de variáveis documentado
 - **WHEN** o desenvolvedor clona o projeto
-- **THEN** existe `frontend/.env.example` com `NEXT_PUBLIC_API_URL` preenchida para o ambiente local
+- **THEN** existe `frontend/.env.example` com `API_INTERNAL_URL`, `NEXT_PUBLIC_SITE_URL` e `REVALIDATE_SECRET` preenchidas para o ambiente local
 

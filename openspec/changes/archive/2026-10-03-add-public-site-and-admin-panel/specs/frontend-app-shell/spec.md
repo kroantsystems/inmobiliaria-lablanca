@@ -15,6 +15,10 @@ A aplicação SHALL renderizar, para cada idioma em `src/app/[locale]/`, um layo
 ### Requirement: Configuração de acesso à API
 O navegador SHALL chamar a API sempre pela mesma origem do site, em `/api/*`, que o Next.js repassa para a API .NET configurada em `API_INTERNAL_URL`. Componentes de servidor SHALL chamar a API diretamente por `API_INTERNAL_URL`. A aplicação SHALL expor um único cliente Axios para o navegador e um único cliente de servidor.
 
+#### Scenario: URL da API configurada
+- **WHEN** `API_INTERNAL_URL` está definida em `.env.local`
+- **THEN** os componentes de servidor e o repasse de `/api/*` usam essa URL como base, e o navegador nunca recebe esse endereço
+
 #### Scenario: Chamada pelo navegador
 - **WHEN** o painel faz `GET /api/admin/leads`
 - **THEN** a requisição sai para a origem do site e o Next.js a encaminha para `API_INTERNAL_URL`
