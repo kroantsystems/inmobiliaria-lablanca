@@ -14,7 +14,8 @@ import { useSiteDialogs } from "./SiteDialogs";
 const selectClass =
   "cursor-pointer rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-white outline-none [&>option]:bg-white [&>option]:text-lb-ink";
 
-function LanguageSwitcher() {
+/** Seletor de idioma que mantém a página atual (e o slug traduzido em anúncios). Também usado no painel. */
+export function LanguageSwitcher({ className = selectClass }: { className?: string }) {
   const t = useTranslations();
   const locale = useLocale();
   const router = useRouter();
@@ -27,7 +28,7 @@ function LanguageSwitcher() {
   return (
     <select
       aria-label={t("topbar.language")}
-      className={selectClass}
+      className={className}
       value={locale}
       disabled={pending}
       onChange={(event) => {

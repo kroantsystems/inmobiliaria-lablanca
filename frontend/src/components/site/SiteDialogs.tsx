@@ -3,6 +3,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { createContext, Suspense, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { Logo } from "@/components/brand/Logo";
 import { Modal } from "@/components/ui/Modal";
 import { track } from "@/lib/analytics";
 import { LeadForm } from "./LeadForm";
@@ -67,8 +68,8 @@ export function SiteDialogs({ children }: { children: React.ReactNode }) {
       </Suspense>
 
       <Modal open={current === "login"} onClose={close} labelledBy="login-title" size="sm">
-        <p className="text-xs font-extrabold uppercase tracking-wide text-lb-blue">{t("meta.siteName")}</p>
-        <h2 id="login-title" className="mt-1 font-display text-2xl font-bold">
+        <Logo variant="light" alt={t("meta.logoAlt")} width={132} className="mb-3" />
+        <h2 id="login-title" className="font-display text-2xl font-bold">
           {t("login.title")}
         </h2>
         <p className="mb-5 text-sm text-lb-muted">{t("login.subtitle")}</p>

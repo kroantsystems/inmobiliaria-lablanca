@@ -3,6 +3,8 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const apiInternalUrl = process.env.API_INTERNAL_URL ?? "http://localhost:5080";
 const isProduction = process.env.NODE_ENV === "production";
+// Uploads grandes vão direto para a API (ver useUploader); a CSP precisa liberar essa origem.
+const uploadOrigin = process.env.NEXT_PUBLIC_API_UPLOAD_URL ? new URL(process.env.NEXT_PUBLIC_API_UPLOAD_URL).origin : "";
 
 // CSP básica: o Next injeta scripts inline de hidratação, por isso 'unsafe-inline' em script-src.
 const contentSecurityPolicy = [
@@ -11,7 +13,7 @@ const contentSecurityPolicy = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https:",
   "font-src 'self'",
-  "connect-src 'self'",
+  `connect-src 'self'${uploadOrigin ? ` ${uploadOrigin}` : ""}`,
   "media-src 'self' blob:",
   "frame-src https://www.youtube-nocookie.com https://player.vimeo.com",
   "object-src 'none'",

@@ -122,7 +122,7 @@
 - [x] 11.11 (TDD) `useDebounce` (300 ms) e `useClientTable` (busca, filtros e ordenação com `useMemo`)
 - [x] 11.12 (TDD) Validação de uploads no cliente com as mesmas regras da API
 - [x] 11.13 Route handler `POST /revalidate` com verificação de segredo e `revalidateTag(tag, { expire: 0 })`
-- [ ] 11.14 Layouts `[locale]/(site)` e `[locale]/admin` com `lang` dinâmico — spec `frontend-app-shell`
+- [x] 11.14 Layouts `[locale]/(site)` e `[locale]/admin` com `lang` dinâmico — spec `frontend-app-shell`
 - [x] 11.15 Marca: copiar `logo-transparent*.{png,webp}` e `brand-mark.svg` de `openspec/changes/add-public-site-and-admin-panel/assets/` para `frontend/public/brand/`; usar `favicon.svg` como `src/app/icon.svg`; gerar com `sharp` (script em `frontend/scripts/`) `favicon.ico` (16/32/48), `apple-icon.png` 180 e ícones 192/512 + maskable com fundo `#005DAA`; criar `manifest.ts`; remover o `favicon.ico` do scaffold
 - [x] 11.16 Componentes `Logo` (variantes fundo claro/escuro, `next/image` com dimensões fixas e alt "Inmobiliaria La Blanca – Ciudad del Este") e `BrandMark` (SVG inline)
 - [x] 11.17 Commit da fase
@@ -161,18 +161,18 @@
 
 ## 14. Painel administrativo (spec `admin-panel`)
 
-- [ ] 14.1 Layout do painel (sidebar escura com ícones abaixo de 1024 px, topo com título por seção, idioma e menu do usuário), `noindex` e guarda de sessão (refresh único, senão volta à home com modal de login)
-- [ ] 14.2 Dashboard: cartões de KPIs com variação, gráfico Recharts 7/30 dias, ranking de anúncios e próximos compromissos
-- [ ] 14.3 Componente de tabela reutilizável sobre `useClientTable` (ordenar por coluna, filtros, busca com debounce)
-- [ ] 14.4 Anúncios & Mídia: lista, formulário com abas de idioma, campos do imóvel, vídeo, galeria (upload múltiplo com progresso, pré-visualização, arrastar para ordenar, capa, texto alternativo) e ações de publicar/despublicar/destacar/status/arquivar com link "Ver no site"
-- [ ] 14.5 Teste manual de upload de imagem de ~50 MB pelo rewrite; se falhar, ativar envio direto para a origem da API (`NEXT_PUBLIC_API_UPLOAD_URL`)
-- [ ] 14.6 Clientes / Leads: formulário, tabela, painel lateral de edição, mudança rápida de status, link de WhatsApp
-- [ ] 14.7 Proprietários: formulário, tabela com imóveis captados e conversão de propostas
-- [ ] 14.8 Agenda: formulário de visita, próximos compromissos e calendário mensal (navegação, dia atual, etiquetas por status, detalhe ao clicar, atualização sem recarregar)
-- [ ] 14.9 Imagens e Documentos: upload com vínculo e descrição, grade com pré-visualização/ícone por tipo, etiqueta de vínculo, download e exclusão com confirmação
-- [ ] 14.10 Configurações (dados institucionais, cotações, simulador, meta, zonas) e Minha conta (troca de senha com confirmação no cliente)
-- [ ] 14.11 Tradução de todos os textos do painel nos quatro arquivos de mensagens
-- [ ] 14.12 Commit da fase
+- [x] 14.1 Layout do painel (sidebar escura com ícones abaixo de 1024 px, topo com título por seção, idioma e menu do usuário), `noindex` e guarda de sessão (refresh único, senão volta à home com modal de login)
+- [x] 14.2 Dashboard: cartões de KPIs com variação, gráfico Recharts 7/30 dias, ranking de anúncios e próximos compromissos
+- [x] 14.3 Componente de tabela reutilizável sobre `useClientTable` (ordenar por coluna, filtros, busca com debounce)
+- [x] 14.4 Anúncios & Mídia: lista, formulário com abas de idioma, campos do imóvel, vídeo, galeria (upload múltiplo com progresso, pré-visualização, arrastar para ordenar, capa, texto alternativo) e ações de publicar/despublicar/destacar/status/arquivar com link "Ver no site"
+- [x] 14.5 Teste manual de upload de imagem de ~50 MB pelo rewrite; se falhar, ativar envio direto para a origem da API (`NEXT_PUBLIC_API_UPLOAD_URL`)
+- [x] 14.6 Clientes / Leads: formulário, tabela, painel lateral de edição, mudança rápida de status, link de WhatsApp
+- [x] 14.7 Proprietários: formulário, tabela com imóveis captados e conversão de propostas
+- [x] 14.8 Agenda: formulário de visita, próximos compromissos e calendário mensal (navegação, dia atual, etiquetas por status, detalhe ao clicar, atualização sem recarregar)
+- [x] 14.9 Imagens e Documentos: upload com vínculo e descrição, grade com pré-visualização/ícone por tipo, etiqueta de vínculo, download e exclusão com confirmação
+- [x] 14.10 Configurações (dados institucionais, cotações, simulador, meta, zonas) e Minha conta (troca de senha com confirmação no cliente)
+- [x] 14.11 Tradução de todos os textos do painel nos quatro arquivos de mensagens
+- [x] 14.12 Commit da fase
 
 ## 15. Fechamento
 

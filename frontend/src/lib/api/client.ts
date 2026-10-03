@@ -16,11 +16,23 @@ function setSession(response: AuthResponse | null) {
   listeners.forEach((listener) => listener(currentUser));
 }
 
-/** Renova pelo cookie HttpOnly (mesma origem via rewrite /api). */
-async function refreshSession(): Promise<string> {
-  const { data } = await axios.post<AuthResponse>("/api/auth/refresh", null, { withCredentials: true });
-  setSession(data);
-  return data.accessToken;
+let refreshing: Promise<string> | null = null;
+
+/**
+ * Renova pelo cookie HttpOnly (mesma origem via rewrite /api). Chamadas simultâneas na mesma aba (ex.: efeito
+ * duplo do React em desenvolvimento) compartilham uma única rotação do refresh token.
+ */
+function refreshSession(): Promise<string> {
+  refreshing ??= axios
+    .post<AuthResponse>("/api/auth/refresh", null, { withCredentials: true })
+    .then(({ data }) => {
+      setSession(data);
+      return data.accessToken;
+    })
+    .finally(() => {
+      refreshing = null;
+    });
+  return refreshing;
 }
 
 export const apiClient = createHttpClient({
