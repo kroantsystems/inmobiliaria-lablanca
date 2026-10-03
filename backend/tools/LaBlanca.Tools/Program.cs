@@ -28,7 +28,9 @@ if (args.Length == 0 || args[0] is "-h" or "--help")
 }
 
 var command = args[0];
-var builder = Host.CreateApplicationBuilder(args[1..]);
+var readFromStdin = args.Contains("--password-stdin");
+// --password-stdin é um sinalizador sem valor: fora da configuração para não consumir o argumento seguinte.
+var builder = Host.CreateApplicationBuilder(args[1..].Where(arg => arg != "--password-stdin").ToArray());
 builder.Logging.SetMinimumLevel(LogLevel.Warning);
 builder.Configuration["BackgroundJobs:Enabled"] = "false";
 if (builder.Configuration["connection"] is { Length: > 0 } connection)
@@ -37,7 +39,6 @@ if (builder.Configuration["connection"] is { Length: > 0 } connection)
 }
 
 var options = builder.Configuration;
-var readFromStdin = args.Contains("--password-stdin");
 
 try
 {
