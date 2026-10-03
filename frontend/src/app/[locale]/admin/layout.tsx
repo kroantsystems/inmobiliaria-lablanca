@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import { AdminProviders } from "@/components/admin/AdminProviders";
 import { AdminShell } from "@/components/admin/AdminShell";
 
@@ -13,8 +14,10 @@ export default async function AdminLayout({ children, params }: LayoutProps<"/[l
   const { locale } = await params;
   setRequestLocale(locale);
   return (
-    <AdminProviders>
-      <AdminShell>{children}</AdminShell>
-    </AdminProviders>
+    <NextIntlClientProvider messages={await getMessages()}>
+      <AdminProviders>
+        <AdminShell>{children}</AdminShell>
+      </AdminProviders>
+    </NextIntlClientProvider>
   );
 }

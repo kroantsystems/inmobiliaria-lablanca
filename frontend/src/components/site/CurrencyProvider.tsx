@@ -81,7 +81,7 @@ export function Price({ amount, currency, perMonth = false, className }: { amoun
   return (
     <span className={className}>
       {format(amount, currency)}
-      {perMonth ? <span className="text-[0.7em] font-semibold opacity-80"> {t("perMonth")}</span> : null}
+      {perMonth ? <span className="text-[0.7em] font-semibold"> {t("perMonth")}</span> : null}
     </span>
   );
 }

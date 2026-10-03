@@ -3,7 +3,7 @@
 import { Building2, CalendarDays, ChevronDown, ExternalLink, FolderOpen, LayoutDashboard, LogOut, Settings, UserCog, UserRound, Users } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { Suspense, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BrandMark } from "@/components/brand/Logo";
 import { LanguageSwitcher } from "@/components/site/TopBar";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
@@ -164,9 +164,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
               <p className="text-sm text-lb-muted">{t("welcome", { name: user.name.split(" ")[0] })}</p>
             </div>
             <div className="flex items-center gap-3">
-              <Suspense fallback={null}>
-                <LanguageSwitcher className="cursor-pointer rounded-full border border-lb-border bg-white px-3 py-2 text-sm font-semibold outline-none" />
-              </Suspense>
+              <LanguageSwitcher className="cursor-pointer rounded-full border border-lb-border bg-white px-3 py-2 text-sm font-semibold outline-none" />
               <UserMenu
                 name={user.name}
                 onLogout={() => {

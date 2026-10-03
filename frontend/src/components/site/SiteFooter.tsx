@@ -101,7 +101,7 @@ export async function SiteFooter({ settings }: { settings: PublicSettings | null
         </div>
       </div>
 
-      <p className="mx-auto mt-10 max-w-6xl border-t border-lb-slate pt-6 text-center text-xs text-slate-500" lang={locale}>
+      <p className="mx-auto mt-10 max-w-6xl border-t border-lb-slate pt-6 text-center text-xs text-slate-400" lang={locale}>
         © {year} {settings?.companyName ?? t("meta.siteName")} – Ciudad del Este. {t("footer.rights")}
       </p>
     </footer>

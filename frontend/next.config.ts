@@ -37,6 +37,8 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // CSS do Tailwind é pequeno: embutido no <head> evita a requisição que bloqueia a renderização (LCP).
+  experimental: { inlineCss: true },
   images: {
     formats: ["image/avif", "image/webp"],
     // Mídia pública vem da API pela mesma origem (rewrite de /api); é imutável por id.

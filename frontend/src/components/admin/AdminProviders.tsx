@@ -2,6 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
+import { ApiLocaleSync } from "@/lib/api/ApiLocaleSync";
 import { AuthProvider } from "@/lib/auth/AuthProvider";
 
 export function AdminProviders({ children }: { children: React.ReactNode }) {
@@ -16,6 +17,8 @@ export function AdminProviders({ children }: { children: React.ReactNode }) {
 
   return (
     <QueryClientProvider client={queryClient}>
+      {/* Só o painel usa o cliente Axios; as páginas públicas não carregam essa dependência. */}
+      <ApiLocaleSync />
       <AuthProvider>{children}</AuthProvider>
     </QueryClientProvider>
   );

@@ -12,7 +12,7 @@ import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { getSettings, safely, searchProperties } from "@/lib/api/server";
 import type { PublicSettings } from "@/lib/api/types";
-import { canonicalQuery, catalogQuery, parseCatalogParams, toApiParams, type CatalogFilters, type CatalogSort } from "@/lib/catalog";
+import { canonicalQuery, catalogHref, catalogQuery, parseCatalogParams, toApiParams, type CatalogFilters, type CatalogSort } from "@/lib/catalog";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 type Props = PageProps<"/[locale]/properties">;
@@ -32,7 +32,7 @@ export async function generateMetadata({ params, searchParams }: Props) {
     locale,
     title: await catalogTitle(filters, settings),
     description: t("catalogDescription"),
-    href: { pathname: "/properties", query: canonicalQuery(filters) },
+    href: catalogHref(canonicalQuery(filters)),
   });
 }
 
@@ -59,7 +59,7 @@ export default async function CatalogPage({ params, searchParams }: Props) {
     { value: "price_asc", label: t("sortPriceAsc") },
     { value: "price_desc", label: t("sortPriceDesc") },
   ];
-  const pageLink = (page: number) => ({ pathname: "/properties" as const, query: catalogQuery(filters, { page }) });
+  const pageLink = (page: number) => catalogHref(catalogQuery(filters, { page }));
 
   return (
     <>
@@ -102,7 +102,7 @@ export default async function CatalogPage({ params, searchParams }: Props) {
                   return (
                     <Link
                       key={sort.label}
-                      href={{ pathname: "/properties", query: catalogQuery(filters, { sort: sort.value, page: 1 }) }}
+                      href={catalogHref(catalogQuery(filters, { sort: sort.value, page: 1 }))}
                       aria-current={active ? "true" : undefined}
                       className={`rounded-full px-3 py-1 font-semibold transition ${
                         active ? "bg-lb-blue text-white" : "border border-lb-border bg-white text-lb-ink hover:border-lb-blue"
@@ -116,6 +116,7 @@ export default async function CatalogPage({ params, searchParams }: Props) {
               <CurrencyNotice className="text-xs text-lb-muted" />
             </div>
 
+            <h2 className="sr-only">{t("results", { count: total })}</h2>
             <PropertyGrid properties={items} locale={locale} prioritizeFirst />
 
             {pages > 1 ? (

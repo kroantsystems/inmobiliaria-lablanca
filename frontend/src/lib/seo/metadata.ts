@@ -20,7 +20,8 @@ const SITE_NAME = "Inmobiliaria La Blanca";
 const DEFAULT_IMAGE = { url: "/og", width: 1200, height: 630, alt: "Inmobiliaria La Blanca – Ciudad del Este" };
 
 export function localizedUrl(locale: Locale, href: Href): string {
-  return absoluteUrl(getPathname({ locale, href }));
+  // Query vazia gera "?" no fim; a canônica precisa ser idêntica à URL da página.
+  return absoluteUrl(getPathname({ locale, href }).replace(/\?$/, ""));
 }
 
 /** URLs absolutas da mesma página em cada idioma disponível. */

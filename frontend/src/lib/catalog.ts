@@ -67,6 +67,11 @@ export function catalogQuery(filters: CatalogFilters, changes: Partial<Pick<Cata
   return compact({ ...rest, page: page && page > 1 ? page : undefined });
 }
 
+/** Link do catálogo sem "?" sobrando quando não há filtros. */
+export function catalogHref(query: Record<string, string>) {
+  return Object.keys(query).length > 0 ? { pathname: "/properties" as const, query } : ("/properties" as const);
+}
+
 /** A canônica ignora texto livre, preço, quartos, ordenação e página. */
 export function canonicalQuery(filters: CatalogFilters): Record<string, string> {
   return compact({ operation: filters.operation, type: filters.type, zone: filters.zone });

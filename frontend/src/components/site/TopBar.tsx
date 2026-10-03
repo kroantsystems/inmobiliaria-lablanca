@@ -2,8 +2,8 @@
 
 import { HousePlus, Lock } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useParams, useSearchParams } from "next/navigation";
-import { Suspense, useTransition } from "react";
+import { useParams } from "next/navigation";
+import { useTransition } from "react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { locales, type Locale } from "@/i18n/routing";
 import { CURRENCIES, type CurrencyCode } from "@/lib/format/format";
@@ -21,7 +21,6 @@ export function LanguageSwitcher({ className = selectClass }: { className?: stri
   const router = useRouter();
   const pathname = usePathname();
   const params = useParams();
-  const searchParams = useSearchParams();
   const slugs = useAlternateSlugs();
   const [pending, startTransition] = useTransition();
 
@@ -38,7 +37,8 @@ export function LanguageSwitcher({ className = selectClass }: { className?: stri
         startTransition(() => {
           router.replace(
             // @ts-expect-error -- params do pathname atual são compatíveis com a rota.
-            { pathname, params: nextParams, query: Object.fromEntries(searchParams.entries()) },
+            // Query lida só na troca: useSearchParams faria o seletor sumir do HTML estático (e deslocar o layout).
+            { pathname, params: nextParams, query: Object.fromEntries(new URLSearchParams(window.location.search)) },
             { locale: next },
           );
         });
@@ -80,9 +80,7 @@ export function TopBar() {
           </button>
         </div>
         <div className="flex items-center gap-2">
-          <Suspense fallback={null}>
-            <LanguageSwitcher />
-          </Suspense>
+          <LanguageSwitcher />
           <select
             aria-label={t("currency")}
             className={selectClass}

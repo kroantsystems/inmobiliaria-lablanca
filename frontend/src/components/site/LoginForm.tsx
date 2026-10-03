@@ -1,14 +1,15 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useId, useState } from "react";
 import { useRouter } from "@/i18n/navigation";
-import { problemOf, session } from "@/lib/api/client";
+import { apiClient, problemOf, session } from "@/lib/api/client";
 
 export function LoginForm({ notice }: { notice?: string }) {
   const t = useTranslations("login");
   const tc = useTranslations("common");
   const router = useRouter();
+  const locale = useLocale();
   const id = useId();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,6 +21,8 @@ export function LoginForm({ notice }: { notice?: string }) {
     setSubmitting(true);
     setError(null);
     try {
+      // Mensagens de erro da API no idioma da página (o sincronizador de idioma só existe no painel).
+      apiClient.setLocale(locale);
       await session.login(email, password);
       router.push("/admin");
     } catch (failure) {

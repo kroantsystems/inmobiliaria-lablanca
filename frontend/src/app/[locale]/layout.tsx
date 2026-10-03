@@ -2,25 +2,25 @@ import type { Metadata, Viewport } from "next";
 import { Fredoka, Plus_Jakarta_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { ApiLocaleSync } from "@/lib/api/ApiLocaleSync";
 import { SITE_URL } from "@/lib/site";
 import "../globals.css";
 
-const fredoka = Fredoka({ subsets: ["latin"], weight: ["600", "700"], variable: "--font-fredoka", display: "swap" });
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-jakarta",
-  display: "swap",
-});
+// Fontes variáveis: um arquivo por família. Fredoka só aparece abaixo da dobra, então não é pré-carregada
+// (assim não disputa banda com a imagem principal).
+const fredoka = Fredoka({ subsets: ["latin"], variable: "--font-fredoka", display: "swap", preload: false });
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap" });
 
 export const viewport: Viewport = {
   themeColor: "#005DAA",
   width: "device-width",
   initialScale: 1,
 };
+
+// Namespaces usados por componentes de cliente do site. O painel injeta o restante no próprio layout;
+// enviar tudo deixaria o HTML de cada página pública bem maior (textos do painel inclusive).
+const CLIENT_NAMESPACES = ["meta", "nav", "topbar", "languages", "currency", "common", "login", "forms", "whatsapp", "search", "property", "simulator", "home"];
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -42,12 +42,13 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
+  const messages = await getMessages();
+  const clientMessages = Object.fromEntries(CLIENT_NAMESPACES.map((namespace) => [namespace, messages[namespace]]));
 
   return (
     <html lang={locale} className={`${fredoka.variable} ${jakarta.variable}`}>
       <body className="min-h-dvh bg-lb-bg font-sans text-lb-ink antialiased">
-        <NextIntlClientProvider>
-          <ApiLocaleSync />
+        <NextIntlClientProvider messages={clientMessages}>
           {children}
         </NextIntlClientProvider>
       </body>

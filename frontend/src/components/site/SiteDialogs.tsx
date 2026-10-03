@@ -1,13 +1,16 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
+import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
 import { createContext, Suspense, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { Logo } from "@/components/brand/Logo";
 import { Modal } from "@/components/ui/Modal";
 import { track } from "@/lib/analytics";
 import { LeadForm } from "./LeadForm";
-import { LoginForm } from "./LoginForm";
+
+// O login (e o cliente Axios da sessão) só é baixado quando o modal abre.
+const LoginForm = dynamic(() => import("./LoginForm").then((module) => module.LoginForm));
 
 type DialogKind = "login" | "contact" | "owner";
 

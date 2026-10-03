@@ -127,17 +127,17 @@ export default async function PropertyPage({ params }: Props) {
                 <h2 id="facts-title" className={sectionTitle}>
                   {t("facts")}
                 </h2>
-                <dl className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
                   {facts.map((fact) => (
-                    <div key={fact.label} className="flex items-center gap-3 rounded-[var(--radius-card)] border border-lb-border bg-white p-4">
+                    <li key={fact.label} className="flex items-center gap-3 rounded-[var(--radius-card)] border border-lb-border bg-white p-4">
                       <fact.icon className="size-5 shrink-0 text-lb-blue" aria-hidden />
-                      <div>
-                        <dt className="text-xs font-bold text-lb-muted uppercase">{fact.label}</dt>
-                        <dd className="font-bold">{fact.value}</dd>
-                      </div>
-                    </div>
+                      <span>
+                        <span className="block text-xs font-bold text-lb-muted uppercase">{fact.label}</span>
+                        <strong className="block">{fact.value}</strong>
+                      </span>
+                    </li>
                   ))}
-                </dl>
+                </ul>
               </section>
             ) : null}
 

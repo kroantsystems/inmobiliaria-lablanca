@@ -34,7 +34,7 @@ export function LazyMap({ properties, single = false, className = "h-[420px]" }:
       {visible ? (
         <PropertiesMap properties={properties} single={single} />
       ) : (
-        <p className="flex h-full items-center justify-center text-sm text-lb-muted">{t("mapLoading")}</p>
+        <p className="flex h-full items-center justify-center text-sm text-slate-600">{t("mapLoading")}</p>
       )}
     </div>
   );

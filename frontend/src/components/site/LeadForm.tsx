@@ -5,10 +5,9 @@ import { CheckCircle2 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useId, useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { Link } from "@/i18n/navigation";
-import { api, problemOf } from "@/lib/api/client";
-import type { LeadInterest, LeadSource } from "@/lib/api/types";
+import type { LeadInterest, LeadSource, ProblemDetails } from "@/lib/api/types";
+import { leadSchema, type LeadValues } from "@/lib/forms/lead";
 
 type LeadFormProps = {
   source: Exclude<LeadSource, "Manual">;
@@ -22,8 +21,6 @@ type LeadFormProps = {
   /** Só dentro de modais: fora deles o foco automático faria a página rolar até o formulário. */
   autoFocus?: boolean;
 };
-
-type Values = { name: string; phone: string; email: string; message?: string; consent: boolean; website?: string };
 
 export function LeadForm({
   source,
@@ -42,18 +39,11 @@ export function LeadForm({
   const id = useId();
   const [sent, setSent] = useState(false);
 
-  const schema = z.object({
-    name: z.string().trim().min(1, t("required")).max(120),
-    phone: z.string().trim().refine((value) => (value.match(/\d/g)?.length ?? 0) >= 8, t("invalidPhone")),
-    // Obrigatório só na newsletter; nos outros formulários pode ficar vazio, mas se preenchido precisa ser válido.
-    email: z
-      .string()
-      .trim()
-      .refine((value) => source !== "Newsletter" || value.length > 0, t("required"))
-      .refine((value) => value === "" || z.email().safeParse(value).success, t("invalidEmail")),
-    message: z.string().max(2000).optional(),
-    consent: z.boolean().refine((value) => value, t("consentRequired")),
-    website: z.string().optional(),
+  const schema = leadSchema(source, {
+    required: t("required"),
+    invalidEmail: t("invalidEmail"),
+    invalidPhone: t("invalidPhone"),
+    consentRequired: t("consentRequired"),
   });
 
   const {
@@ -62,31 +52,41 @@ export function LeadForm({
     reset,
     setError,
     formState: { errors, isSubmitting },
-  } = useForm<Values>({ resolver: zodResolver(schema), defaultValues: { email: "", consent: false } });
+  } = useForm<LeadValues>({ resolver: zodResolver(schema), defaultValues: { email: "", consent: false } });
 
+  // fetch (não Axios): formulário público, sem sessão, presente em todas as páginas.
   const onSubmit = handleSubmit(async (values) => {
+    let problem: ProblemDetails | null = null;
     try {
-      await api.post("/api/public/leads", {
-        source,
-        name: values.name,
-        phone: values.phone,
-        email: values.email || null,
-        interest: interest ?? null,
-        propertyId: propertyId ?? null,
-        message: values.message || null,
-        locale,
-        consent: values.consent,
-        website: values.website || null,
+      const response = await fetch("/api/public/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept-Language": locale },
+        body: JSON.stringify({
+          source,
+          name: values.name,
+          phone: values.phone,
+          email: values.email || null,
+          interest: interest ?? null,
+          propertyId: propertyId ?? null,
+          message: values.message || null,
+          locale,
+          consent: values.consent,
+          website: values.website || null,
+        }),
       });
-      reset();
-      setSent(true);
-    } catch (error) {
-      const problem = problemOf(error);
-      for (const [field, messages] of Object.entries(problem?.errors ?? {})) {
-        if (field in schema.shape) setError(field as keyof Values, { message: messages[0] });
+      if (response.ok) {
+        reset();
+        setSent(true);
+        return;
       }
-      setError("root", { message: problem?.detail ?? tc("genericError") });
+      problem = (await response.json().catch(() => null)) as ProblemDetails | null;
+    } catch {
+      // Falha de rede: mensagem genérica abaixo, mantendo os dados preenchidos.
     }
+    for (const [field, messages] of Object.entries(problem?.errors ?? {})) {
+      if (field in schema.shape) setError(field as keyof LeadValues, { message: messages[0] });
+    }
+    setError("root", { message: problem?.detail ?? tc("genericError") });
   });
 
   const dark = tone === "dark";

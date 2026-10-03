@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { canonicalQuery, catalogQuery, parseCatalogParams, toApiParams } from "./catalog";
+import { canonicalQuery, catalogHref, catalogQuery, parseCatalogParams, toApiParams } from "./catalog";
 
 describe("parseCatalogParams", () => {
   it("keeps valid filters", () => {
@@ -64,5 +64,12 @@ describe("queries", () => {
 
   it("canonical keeps only operation, type and zone", () => {
     expect(canonicalQuery(filters)).toEqual({ operation: "Sale", zone: "hernandarias" });
+  });
+});
+
+describe("catalogHref", () => {
+  it("uses the bare path when there are no filters (no trailing ?)", () => {
+    expect(catalogHref({})).toBe("/properties");
+    expect(catalogHref({ operation: "Rent" })).toEqual({ pathname: "/properties", query: { operation: "Rent" } });
   });
 });
