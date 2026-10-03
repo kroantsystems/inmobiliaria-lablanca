@@ -37,9 +37,25 @@ Site público multilíngue (espanhol, português, inglês e guarani) e painel ad
 │       ├── app/[locale]/admin/      # Painel administrativo
 │       ├── app/{sitemap,robots}.ts, llms.txt/, og/   # SEO/GEO e imagens Open Graph
 │       └── components/, lib/, hooks/, i18n/
-├── openspec/                        # Especificações e mudanças (OpenSpec)
+├── openspec/                        # Especificações e mudanças (OpenSpec), só no branch development
 └── docker-compose.yml               # PostgreSQL local
 ```
+
+## Branches
+
+- **`development`**: onde o trabalho acontece. Tem o projeto, as especificações (`openspec/`) e as configurações do Claude Code (`.claude/`).
+- **`main`**: só o projeto (backend, frontend, `docker-compose.yml`, README), sem especificações nem ferramentas de agente.
+
+Para levar o que está pronto do `development` para o `main`, sem trazer as especificações:
+
+```bash
+git checkout main
+git merge --no-ff --no-commit development
+git rm -r -q --ignore-unmatch openspec .claude
+git commit
+```
+
+Se o merge acusar conflito em arquivos de `openspec/` ou `.claude/` (alterados no `development` e apagados no `main`), o `git rm` acima resolve: eles continuam fora do `main`.
 
 ## Rodando localmente
 
