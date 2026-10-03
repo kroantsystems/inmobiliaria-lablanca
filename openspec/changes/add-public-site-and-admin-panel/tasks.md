@@ -109,55 +109,55 @@
 
 ## 11. Fundação do frontend
 
-- [ ] 11.1 Ler `node_modules/next/dist/docs` (upgrade para 16, `proxy`, metadata, `revalidateTag`, `next/image`) antes de codar; instalar next-intl compatível com Next 16, axios, @tanstack/react-query, react-hook-form, zod, @hookform/resolvers, lucide-react, date-fns, recharts, leaflet, react-leaflet, e Vitest + Testing Library + jsdom
-- [ ] 11.2 Configurar Vitest (`npm run test`) e incluí-lo no checklist do README
-- [ ] 11.3 Tema Tailwind 4 com tokens do protótipo e fontes Fredoka + Plus Jakarta Sans via `next/font`; remover Inter/Playfair e componentes placeholder do scaffold
-- [ ] 11.4 next-intl: `src/i18n/routing.ts` (es padrão, pt, en, gn, `pathnames` traduzidos), `request.ts`, `navigation.ts`, `proxy.ts` com matcher que exclui `api`, `_next`, `revalidate`, arquivos de SEO e estáticos
-- [ ] 11.5 (TDD) Teste de paridade de chaves entre `messages/es.json`, `pt.json`, `en.json`, `gn.json`; criar `gn-pending.md`
-- [ ] 11.6 (TDD) Utilitários de formatação (mapa `gn→es-PY`, moedas USD/PYG/BRL, datas no fuso de Assunção)
-- [ ] 11.7 `next.config.ts`: `rewrites` de `/api/:path*` para `API_INTERNAL_URL`, `images.remotePatterns` para a mídia pública, cabeçalhos de segurança; atualizar `.env.example` (`API_INTERNAL_URL`, `NEXT_PUBLIC_SITE_URL`, `REVALIDATE_SECRET`, `NEXT_PUBLIC_MAP_TILES_URL`)
-- [ ] 11.8 Cliente de servidor (`lib/api/server.ts`) com `fetch`, tags de cache e `Accept-Language`
-- [ ] 11.9 (TDD) Cliente Axios com interceptor de `Authorization` + `Accept-Language` e refresh single-flight em 401 com repetição das requisições pendentes
-- [ ] 11.10 `AuthProvider` (token só em memória), hooks de sessão e `QueryClientProvider`
-- [ ] 11.11 (TDD) `useDebounce` (300 ms) e `useClientTable` (busca, filtros e ordenação com `useMemo`)
-- [ ] 11.12 (TDD) Validação de uploads no cliente com as mesmas regras da API
-- [ ] 11.13 Route handler `POST /revalidate` com verificação de segredo e `revalidateTag(tag, { expire: 0 })`
+- [x] 11.1 Ler `node_modules/next/dist/docs` (upgrade para 16, `proxy`, metadata, `revalidateTag`, `next/image`) antes de codar; instalar next-intl compatível com Next 16, axios, @tanstack/react-query, react-hook-form, zod, @hookform/resolvers, lucide-react, date-fns, recharts, leaflet, react-leaflet, e Vitest + Testing Library + jsdom
+- [x] 11.2 Configurar Vitest (`npm run test`) e incluí-lo no checklist do README
+- [x] 11.3 Tema Tailwind 4 com tokens do protótipo e fontes Fredoka + Plus Jakarta Sans via `next/font`; remover Inter/Playfair e componentes placeholder do scaffold
+- [x] 11.4 next-intl: `src/i18n/routing.ts` (es padrão, pt, en, gn, `pathnames` traduzidos), `request.ts`, `navigation.ts`, `proxy.ts` com matcher que exclui `api`, `_next`, `revalidate`, arquivos de SEO e estáticos
+- [x] 11.5 (TDD) Teste de paridade de chaves entre `messages/es.json`, `pt.json`, `en.json`, `gn.json`; criar `gn-pending.md`
+- [x] 11.6 (TDD) Utilitários de formatação (mapa `gn→es-PY`, moedas USD/PYG/BRL, datas no fuso de Assunção)
+- [x] 11.7 `next.config.ts`: `rewrites` de `/api/:path*` para `API_INTERNAL_URL`, `images.remotePatterns` para a mídia pública, cabeçalhos de segurança; atualizar `.env.example` (`API_INTERNAL_URL`, `NEXT_PUBLIC_SITE_URL`, `REVALIDATE_SECRET`, `NEXT_PUBLIC_MAP_TILES_URL`)
+- [x] 11.8 Cliente de servidor (`lib/api/server.ts`) com `fetch`, tags de cache e `Accept-Language`
+- [x] 11.9 (TDD) Cliente Axios com interceptor de `Authorization` + `Accept-Language` e refresh single-flight em 401 com repetição das requisições pendentes
+- [x] 11.10 `AuthProvider` (token só em memória), hooks de sessão e `QueryClientProvider`
+- [x] 11.11 (TDD) `useDebounce` (300 ms) e `useClientTable` (busca, filtros e ordenação com `useMemo`)
+- [x] 11.12 (TDD) Validação de uploads no cliente com as mesmas regras da API
+- [x] 11.13 Route handler `POST /revalidate` com verificação de segredo e `revalidateTag(tag, { expire: 0 })`
 - [ ] 11.14 Layouts `[locale]/(site)` e `[locale]/admin` com `lang` dinâmico — spec `frontend-app-shell`
-- [ ] 11.15 Marca: copiar `logo-transparent*.{png,webp}` e `brand-mark.svg` de `openspec/changes/add-public-site-and-admin-panel/assets/` para `frontend/public/brand/`; usar `favicon.svg` como `src/app/icon.svg`; gerar com `sharp` (script em `frontend/scripts/`) `favicon.ico` (16/32/48), `apple-icon.png` 180 e ícones 192/512 + maskable com fundo `#005DAA`; criar `manifest.ts`; remover o `favicon.ico` do scaffold
-- [ ] 11.16 Componentes `Logo` (variantes fundo claro/escuro, `next/image` com dimensões fixas e alt "Inmobiliaria La Blanca – Ciudad del Este") e `BrandMark` (SVG inline)
-- [ ] 11.17 Commit da fase
+- [x] 11.15 Marca: copiar `logo-transparent*.{png,webp}` e `brand-mark.svg` de `openspec/changes/add-public-site-and-admin-panel/assets/` para `frontend/public/brand/`; usar `favicon.svg` como `src/app/icon.svg`; gerar com `sharp` (script em `frontend/scripts/`) `favicon.ico` (16/32/48), `apple-icon.png` 180 e ícones 192/512 + maskable com fundo `#005DAA`; criar `manifest.ts`; remover o `favicon.ico` do scaffold
+- [x] 11.16 Componentes `Logo` (variantes fundo claro/escuro, `next/image` com dimensões fixas e alt "Inmobiliaria La Blanca – Ciudad del Este") e `BrandMark` (SVG inline)
+- [x] 11.17 Commit da fase
 
 ## 12. Site público (spec `public-website`)
 
-- [ ] 12.1 Barra superior (Login, Publicar meu imóvel, seletor de idioma que preserva página/slug, seletor de moeda lembrado no navegador) e cabeçalho com menu responsivo
-- [ ] 12.2 Modal de login acessível (foco, `Esc`, trap de `Tab`), erro genérico, limpeza da senha e redirecionamento para `/{locale}/admin`
-- [ ] 12.3 Contexto de moeda com conversão pelas cotações públicas e aviso de conversão aproximada com data
-- [ ] 12.4 Home: hero com destaque, caixa de busca (abas Comprar/Alugar e filtros), grade de destaques, seção institucional azul, FAQ, rodapé com zonas e newsletter, estado sem anúncios
-- [ ] 12.5 Catálogo `/{locale}/{imoveis}` renderizado no servidor com filtros na URL, ordenação, paginação por links e estado vazio
-- [ ] 12.6 Página de detalhe: galeria com `next/image`, preço convertível, características, descrição, vídeo incorporado sob demanda, mapa, WhatsApp com mensagem do anúncio, formulário de visita, semelhantes e 404 com sugestões
-- [ ] 12.7 Mapa com react-leaflet carregado sob demanda (só imóveis publicados, popup com foto/preço/link, tiles configuráveis)
-- [ ] 12.8 (TDD) Simulador pela tabela Price (USD 100.000, 10 anos, 8% → ≈ USD 1.213) com "—" para valor inválido
-- [ ] 12.9 Formulários públicos (contato VIP, visita, proposta de proprietário, newsletter) com zod, consentimento com link para privacidade, honeypot, confirmação e manutenção dos dados em erro
-- [ ] 12.10 WhatsApp flutuante com número das configurações, mensagem por idioma, `rel="noopener"` e evento `WhatsAppClick`
-- [ ] 12.11 Envio de eventos `PageView`/`PropertyView`/`ContactClick` com `sessionId` em `sessionStorage`
-- [ ] 12.12 Páginas Sobre nós, Contato, Perguntas frequentes e Política de privacidade em todos os idiomas
-- [ ] 12.13 Revisão responsiva (360 px a desktop) e de acessibilidade (contraste AA, alt, teclado)
-- [ ] 12.14 Commit da fase
+- [x] 12.1 Barra superior (Login, Publicar meu imóvel, seletor de idioma que preserva página/slug, seletor de moeda lembrado no navegador) e cabeçalho com menu responsivo
+- [x] 12.2 Modal de login acessível (foco, `Esc`, trap de `Tab`), erro genérico, limpeza da senha e redirecionamento para `/{locale}/admin`
+- [x] 12.3 Contexto de moeda com conversão pelas cotações públicas e aviso de conversão aproximada com data
+- [x] 12.4 Home: hero com destaque, caixa de busca (abas Comprar/Alugar e filtros), grade de destaques, seção institucional azul, FAQ, rodapé com zonas e newsletter, estado sem anúncios
+- [x] 12.5 Catálogo `/{locale}/{imoveis}` renderizado no servidor com filtros na URL, ordenação, paginação por links e estado vazio
+- [x] 12.6 Página de detalhe: galeria com `next/image`, preço convertível, características, descrição, vídeo incorporado sob demanda, mapa, WhatsApp com mensagem do anúncio, formulário de visita, semelhantes e 404 com sugestões
+- [x] 12.7 Mapa com react-leaflet carregado sob demanda (só imóveis publicados, popup com foto/preço/link, tiles configuráveis)
+- [x] 12.8 (TDD) Simulador pela tabela Price (USD 100.000, 10 anos, 8% → ≈ USD 1.213) com "—" para valor inválido
+- [x] 12.9 Formulários públicos (contato VIP, visita, proposta de proprietário, newsletter) com zod, consentimento com link para privacidade, honeypot, confirmação e manutenção dos dados em erro
+- [x] 12.10 WhatsApp flutuante com número das configurações, mensagem por idioma, `rel="noopener"` e evento `WhatsAppClick`
+- [x] 12.11 Envio de eventos `PageView`/`PropertyView`/`ContactClick` com `sessionId` em `sessionStorage`
+- [x] 12.12 Páginas Sobre nós, Contato, Perguntas frequentes e Política de privacidade em todos os idiomas
+- [x] 12.13 Revisão responsiva (360 px a desktop) e de acessibilidade (contraste AA, alt, teclado)
+- [x] 12.14 Commit da fase
 
 ## 13. SEO e GEO (spec `seo-geo`)
 
-- [ ] 13.1 Helpers de metadata (title ≤ 60, description ≤ 160, canônica absoluta, Open Graph, Twitter, `og:locale`) e `generateMetadata` em todas as páginas públicas
-- [ ] 13.2 `alternates.languages` com `es-PY`, `pt-BR`, `en`, `gn-PY` e `x-default`, usando os slugs traduzidos de cada anúncio
-- [ ] 13.3 (TDD) Geradores de JSON-LD (`RealEstateAgent`, `WebSite`+`SearchAction`, `RealEstateListing`+`Offer`, `BreadcrumbList`, `FAQPage`) e inclusão nas páginas
-- [ ] 13.4 `sitemap.ts` dinâmico (páginas × idiomas, `alternates`, `lastModified`) e `robots.ts` (bloqueia `/*/admin` e `/api/`, libera robôs de busca e de IA, aponta o sitemap)
-- [ ] 13.5 `llms.txt` gerado com resumo institucional, zonas, contatos e anúncios publicados, com tag de revalidação
-- [ ] 13.6 Páginas de zona `/{locale}/zonas/{zona}` com descrição, anúncios, mapa, FAQ e breadcrumbs
-- [ ] 13.7 Resumo factual no início das páginas de anúncio e zona
-- [ ] 13.8 `opengraph-image.tsx` por anúncio (1200×630, capa, título, preço, logo)
-- [ ] 13.9 Tags de cache por anúncio, listagem, zona, configurações e sitemap ligadas às notificações da API
+- [x] 13.1 Helpers de metadata (title ≤ 60, description ≤ 160, canônica absoluta, Open Graph, Twitter, `og:locale`) e `generateMetadata` em todas as páginas públicas
+- [x] 13.2 `alternates.languages` com `es-PY`, `pt-BR`, `en`, `gn-PY` e `x-default`, usando os slugs traduzidos de cada anúncio
+- [x] 13.3 (TDD) Geradores de JSON-LD (`RealEstateAgent`, `WebSite`+`SearchAction`, `RealEstateListing`+`Offer`, `BreadcrumbList`, `FAQPage`) e inclusão nas páginas
+- [x] 13.4 `sitemap.ts` dinâmico (páginas × idiomas, `alternates`, `lastModified`) e `robots.ts` (bloqueia `/*/admin` e `/api/`, libera robôs de busca e de IA, aponta o sitemap)
+- [x] 13.5 `llms.txt` gerado com resumo institucional, zonas, contatos e anúncios publicados, com tag de revalidação
+- [x] 13.6 Páginas de zona `/{locale}/zonas/{zona}` com descrição, anúncios, mapa, FAQ e breadcrumbs
+- [x] 13.7 Resumo factual no início das páginas de anúncio e zona
+- [x] 13.8 `opengraph-image.tsx` por anúncio (1200×630, capa, título, preço, logo)
+- [x] 13.9 Tags de cache por anúncio, listagem, zona, configurações e sitemap ligadas às notificações da API
 - [ ] 13.10 Auditoria Lighthouse móvel no build de produção (home, catálogo, anúncio): SEO ≥ 95, desempenho ≥ 90, CLS ≤ 0,1, LCP ≤ 2,5 s; corrigir o que faltar
 - [ ] 13.11 Validar JSON-LD de um anúncio no Rich Results Test e registrar o resultado no README
-- [ ] 13.12 Commit da fase
+- [x] 13.12 Commit da fase
 
 ## 14. Painel administrativo (spec `admin-panel`)
 

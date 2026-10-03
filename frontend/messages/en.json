@@ -1,0 +1,370 @@
+{
+  "meta": {
+    "siteName": "Inmobiliaria La Blanca",
+    "logoAlt": "Inmobiliaria La Blanca – Ciudad del Este",
+    "defaultTitle": "Houses, apartments and land in Ciudad del Este",
+    "defaultDescription": "Inmobiliaria La Blanca: houses, apartments and land for sale and rent in Ciudad del Este, Hernandarias and Alto Paraná.",
+    "catalogDescription": "Houses, apartments and land for sale and rent in Ciudad del Este, Hernandarias and Alto Paraná. Filter by area, price and bedrooms.",
+    "aboutDescription": "Meet Inmobiliaria La Blanca: property sales and rentals in Ciudad del Este and Alto Paraná with personal, transparent service.",
+    "contactDescription": "Contact Inmobiliaria La Blanca by WhatsApp, phone or email. Serving Ciudad del Este, Hernandarias and Alto Paraná.",
+    "faqDescription": "Answers about buying, renting, visits, currencies and listing a property with Inmobiliaria La Blanca in Ciudad del Este.",
+    "privacyDescription": "How Inmobiliaria La Blanca collects, uses and protects the personal data sent through this website.",
+    "zoneDescription": "Properties for sale and rent in {zone}, {city}. Houses, apartments and land selected by Inmobiliaria La Blanca.",
+    "homeTitle": "Inmobiliaria La Blanca – Real Estate in Ciudad del Este"
+  },
+  "nav": {
+    "home": "Home",
+    "properties": "Properties",
+    "map": "Locations",
+    "about": "About us",
+    "simulator": "Simulator",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "privacy": "Privacy policy",
+    "vipContact": "VIP contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "mainLabel": "Main navigation",
+    "skipToContent": "Skip to content",
+    "breadcrumb": "Breadcrumb"
+  },
+  "topbar": {
+    "login": "Login",
+    "publishProperty": "List my property",
+    "language": "Language",
+    "currency": "Currency"
+  },
+  "languages": {
+    "es": "Español",
+    "pt": "Português",
+    "en": "English",
+    "gn": "Avañe'ẽ"
+  },
+  "currency": {
+    "notice": "Approximate conversion using the {date} exchange rate.",
+    "perMonth": "/ month"
+  },
+  "common": {
+    "loading": "Loading…",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "clear": "Clear",
+    "retry": "Try again",
+    "seeAll": "See all",
+    "back": "Back",
+    "optional": "optional",
+    "genericError": "We could not complete the operation. Please try again."
+  },
+  "login": {
+    "title": "Admin access",
+    "subtitle": "La Blanca team only.",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign in",
+    "submitting": "Signing in…",
+    "sessionExpired": "Your session expired. Please sign in again."
+  },
+  "footer": {
+    "description": "Your trusted partner in the Ciudad del Este and Alto Paraná real estate market.",
+    "navigation": "Navigation",
+    "zones": "Areas",
+    "contact": "Contact",
+    "rights": "All rights reserved."
+  },
+  "whatsapp": {
+    "label": "Chat on WhatsApp",
+    "defaultMessage": "Hello, I would like more information about your properties.",
+    "propertyMessage": "Hello, I am interested in the property \"{title}\" ({url})."
+  },
+  "errors": {
+    "notFoundTitle": "Page not found",
+    "notFoundText": "The page you are looking for does not exist or is no longer available.",
+    "goHome": "Go to home",
+    "suggestions": "Some options you may like"
+  },
+  "home": {
+    "heroTitle": "Find your new home with La Blanca",
+    "heroSubtitle": "Your trusted partner in the Ciudad del Este and Alto Paraná real estate market.",
+    "seeProperties": "See properties",
+    "simulate": "Estimate payments",
+    "whatsappDoubts": "Questions on WhatsApp",
+    "featuredBadge": "Featured this month",
+    "catalogTag": "Exclusive portfolio",
+    "featuredTitle": "Featured properties",
+    "emptyTitle": "We are updating our catalog",
+    "emptyText": "Tell us what you are looking for and we will send you options before they are published.",
+    "mapTag": "Property map",
+    "mapTitle": "Locations available for sale and rent",
+    "mapLegend": "La Blanca properties only",
+    "mapLoading": "Loading map…",
+    "aboutTag": "Tradition and transparency",
+    "aboutTitle": "The reference real estate agency in Alto Paraná.",
+    "aboutText": "We combine specialized advice, absolute discretion and a curated portfolio in Ciudad del Este, Hernandarias and surroundings.",
+    "stat1Value": "+12",
+    "stat1Label": "years in the market",
+    "stat2Value": "+500",
+    "stat2Label": "families served",
+    "stat3Value": "99%",
+    "stat3Label": "satisfied clients",
+    "faqTitle": "Frequently asked questions",
+    "faqMore": "See all questions",
+    "emptyCta": "Talk to an agent",
+    "featuredFallback": "New opportunities every week",
+    "aboutCta": "About La Blanca"
+  },
+  "search": {
+    "buy": "Buy",
+    "rent": "Rent",
+    "type": "Property type",
+    "anyType": "All types",
+    "zone": "City / area",
+    "anyZone": "All locations",
+    "price": "Price range",
+    "anyPrice": "Any price",
+    "upTo": "Up to {value}",
+    "between": "{min} to {max}",
+    "over": "Over {value}",
+    "bedrooms": "Bedrooms",
+    "anyBedrooms": "Any",
+    "bedroomsMin": "{count}+ bedrooms",
+    "text": "Keyword",
+    "submit": "Search"
+  },
+  "catalog": {
+    "title": "Properties for sale and rent",
+    "titleSale": "Properties for sale",
+    "titleRent": "Properties for rent",
+    "results": "{count, plural, =0 {No properties} one {# property} other {# properties}}",
+    "sort": "Sort",
+    "sortRecent": "Newest",
+    "sortPriceAsc": "Lowest price",
+    "sortPriceDesc": "Highest price",
+    "emptyTitle": "No properties match these filters",
+    "emptyText": "Try clearing the filters or message us on WhatsApp: we will help you find the right option.",
+    "clearFilters": "Clear filters",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page {page} of {pages}",
+    "heading": "{type, select, House {Houses} Apartment {Apartments} Land {Land} Commercial {Commercial properties} other {Properties}} {operation, select, Sale {for sale} Rent {for rent} other {for sale and rent}}",
+    "inZone": "{title} in {zone}",
+    "searchFor": "Results for “{q}”",
+    "filters": "Filter search"
+  },
+  "property": {
+    "details": "View details",
+    "operation": {
+      "Sale": "Sale",
+      "Rent": "Rent"
+    },
+    "type": {
+      "House": "House",
+      "Apartment": "Apartment",
+      "Land": "Land",
+      "Commercial": "Commercial",
+      "Other": "Other"
+    },
+    "status": {
+      "Reserved": "Reserved"
+    },
+    "bedrooms": "{count, plural, one {# bed} other {# beds}}",
+    "bathrooms": "{count, plural, one {# bath} other {# baths}}",
+    "area": "{value} m²",
+    "factBedrooms": "Bedrooms",
+    "factBathrooms": "Bathrooms",
+    "factBuilt": "Built area",
+    "factLot": "Lot size",
+    "factParking": "Parking spaces",
+    "factZone": "Area",
+    "description": "Description",
+    "features": "Features",
+    "video": "Video",
+    "playVideo": "Play video",
+    "location": "Location",
+    "locationNote": "Approximate location.",
+    "whatsapp": "Ask on WhatsApp",
+    "requestVisit": "Request a visit",
+    "similar": "Similar properties",
+    "gallery": "Photo gallery",
+    "photo": "Photo {index}",
+    "summary": "{type} for {operation, select, Sale {sale} other {rent}} in {place}, for {price}{area, select, none {} other {, with {area} m² built}}{bedrooms, select, none {} other {, {bedrooms} bedrooms}}.",
+    "notFoundTitle": "This property is no longer available",
+    "notFoundText": "Take a look at other options you might like.",
+    "facts": "Property facts",
+    "backToCatalog": "Back to properties",
+    "visitIntro": "Leave your details and we will confirm the day and time.",
+    "otherOptions": "Other options for you",
+    "uploadedVideo": "Property video",
+    "previousPhoto": "Previous photo",
+    "nextPhoto": "Next photo"
+  },
+  "simulator": {
+    "tag": "La Blanca tool",
+    "title": "Estimate your monthly payment",
+    "text": "Estimate the financing of your house or land in dollars, guaranies or reais.",
+    "value": "Property value ({currency})",
+    "years": "Term",
+    "yearsOption": "{count} years",
+    "result": "Estimated monthly payment",
+    "disclaimer": "Estimate at a {rate}% annual rate (amortized loan). Not a credit offer."
+  },
+  "forms": {
+    "name": "Full name",
+    "phone": "WhatsApp / phone",
+    "email": "Email",
+    "message": "Message",
+    "consent": "I allow La Blanca to contact me and accept the <link>privacy policy</link>.",
+    "submit": "Send",
+    "sending": "Sending…",
+    "required": "Required field.",
+    "invalidEmail": "Invalid email.",
+    "invalidPhone": "Enter a phone number with at least 8 digits.",
+    "consentRequired": "We need your permission to contact you.",
+    "contactTitle": "Personal service",
+    "contactHeading": "VIP contact",
+    "contactSuccess": "Request sent! We will contact you soon.",
+    "visitTitle": "Schedule a visit",
+    "visitSuccess": "Visit request sent! We will confirm the time.",
+    "ownerTag": "Owners",
+    "ownerTitle": "List your property for sale or rent",
+    "ownerSuccess": "Proposal sent! Our team will be in touch.",
+    "newsletterTitle": "Exclusive updates",
+    "newsletterText": "Get opportunities before they are published.",
+    "newsletterSubmit": "Subscribe",
+    "newsletterSuccess": "Thanks for subscribing!",
+    "honeypot": "Leave empty"
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "intro": "Quick answers about buying, renting and listing properties with La Blanca.",
+    "items": {
+      "zones": {
+        "q": "Which areas does La Blanca cover?",
+        "a": "We work with properties in Ciudad del Este, Hernandarias and the surrounding Alto Paraná area, including Paraná Country Club, Downtown, Área 1 and Km 8 to Km 10."
+      },
+      "currency": {
+        "q": "Which currency are prices shown in?",
+        "a": "Each property is listed in its original currency, usually US dollars. The currency selector shows an approximate conversion to guaraníes or reais; the final price is the one agreed in the contract."
+      },
+      "visit": {
+        "q": "How do I book a visit?",
+        "a": "On each property page you can send a visit request or message us on WhatsApp. An agent will confirm the day and time with you."
+      },
+      "publish": {
+        "q": "How do I list my property for sale or rent?",
+        "a": "Tap “List my property”, leave your name and WhatsApp, and our team will contact you to assess the property and agree on the terms."
+      },
+      "simulator": {
+        "q": "Is the payment simulator a loan offer?",
+        "a": "No. It is an estimate using the French amortization system with a reference rate. Actual terms depend on the lender."
+      },
+      "foreign": {
+        "q": "Do you work with buyers from Brazil and other countries?",
+        "a": "Yes. The site is available in Spanish, Portuguese, English and Guarani, and prices can be shown in dollars, guaraníes or reais. We guide you on the documents needed in each case."
+      }
+    },
+    "contactTitle": "Didn't find your answer?",
+    "contactText": "Message us and we will reply shortly."
+  },
+  "about": {
+    "title": "About Inmobiliaria La Blanca",
+    "lead": "We are a real estate agency in Ciudad del Este dedicated to selling and renting houses, apartments and land in Alto Paraná.",
+    "storyTitle": "How we work",
+    "storyText": "We support every deal from start to finish: we assess the property, prepare the listing, show it to buyers and assist with negotiation and paperwork, with personal and transparent service.",
+    "valuesTitle": "What defines us",
+    "values": {
+      "transparency": {
+        "title": "Transparency",
+        "text": "Clear information on prices, terms and documents at every step."
+      },
+      "local": {
+        "title": "Local knowledge",
+        "text": "We know the neighborhoods of Ciudad del Este, Hernandarias and the surrounding area."
+      },
+      "service": {
+        "title": "Personal service",
+        "text": "An agent supports you by WhatsApp, by phone or in person."
+      }
+    },
+    "ctaTitle": "Looking for a property or want to sell yours?",
+    "ctaText": "Talk to our team and get options that fit your needs.",
+    "ctaProperties": "See properties",
+    "ctaContact": "Contact us"
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "Talk to a La Blanca agent by WhatsApp, phone, email or using the form.",
+    "channels": "How to reach us",
+    "phone": "Phone",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "address": "Address",
+    "hours": "Opening hours",
+    "social": "Social media",
+    "formTitle": "Send us a message",
+    "mapTitle": "How to get here",
+    "noChannels": "Contact details will be published soon. In the meantime, please use the form."
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "updated": "Last updated: {date}",
+    "intro": "This policy explains which personal data Inmobiliaria La Blanca collects on this website, what it is used for and how you can exercise your rights.",
+    "sections": {
+      "data": {
+        "title": "What we collect",
+        "text": "Only the data you send us through the forms: name, phone or WhatsApp, email (when provided), your message and the property you are interested in."
+      },
+      "use": {
+        "title": "How we use it",
+        "text": "To answer your inquiries, schedule visits, assess owner proposals and, if you subscribed, send you property news. We do not sell or share your data."
+      },
+      "analytics": {
+        "title": "Anonymous statistics",
+        "text": "We measure visits anonymously, without tracking cookies and without storing your IP address or browser details. We use a temporary identifier that is deleted when you close the tab, and your chosen currency is saved only in your browser."
+      },
+      "sharing": {
+        "title": "Who we share it with",
+        "text": "Your data is handled by the La Blanca team and by the infrastructure providers that host the site, under a duty of confidentiality."
+      },
+      "retention": {
+        "title": "How long we keep it",
+        "text": "We keep contact data for as long as we are assisting you and for the time required to meet legal obligations. Anonymous statistics are deleted after 13 months."
+      },
+      "rights": {
+        "title": "Your rights",
+        "text": "You can request access, correction or deletion of your data, or stop receiving news, by contacting us through our contact channels."
+      },
+      "contact": {
+        "title": "Contact",
+        "text": "For any privacy question, use the contact page or message us on WhatsApp."
+      }
+    }
+  },
+  "zone": {
+    "tag": "Area",
+    "title": "Properties in {zone}",
+    "summary": "{count, plural, =0 {There are currently no properties listed} one {There is # property listed} other {There are # properties listed}} in {zone}, {city}, Alto Paraná.",
+    "listTitle": "Available properties",
+    "emptyText": "Tell us what you are looking for in {zone} and we will let you know when options come up.",
+    "mapTitle": "Map of {zone}",
+    "faqTitle": "Questions about {zone}",
+    "faq": {
+      "where": {
+        "q": "Where is {zone}?",
+        "a": "{zone} is in {city}, in the Alto Paraná department of Paraguay."
+      },
+      "available": {
+        "q": "Which properties are available in {zone}?",
+        "a": "{count, plural, =0 {There are no properties listed in {zone} right now, but we can let you know when there are.} one {There is # property listed in {zone}, shown on this page.} other {There are # properties listed in {zone}, shown on this page.}}"
+      },
+      "visit": {
+        "q": "How do I visit a property in {zone}?",
+        "a": "Choose the property and send a visit request or message us on WhatsApp; we will arrange the day and time with you."
+      }
+    },
+    "otherZones": "Other areas"
+  }
+}

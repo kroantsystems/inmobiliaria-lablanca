@@ -1,12 +1,57 @@
 @import "tailwindcss";
 
-@theme inline {
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-playfair);
+@theme {
+  --color-lb-red: #e31b23;
+  --color-lb-red-hover: #c4121a;
+  --color-lb-blue: #005daa;
+  --color-lb-blue-dark: #003b6f;
+  --color-lb-blue-hover: #004b8a;
+  --color-lb-ink: #0f172a;
+  --color-lb-slate: #1e293b;
+  --color-lb-bg: #f8fafc;
+  --color-lb-panel: #f1f5f9;
+  --color-lb-border: #e2e8f0;
+  --color-lb-muted: #64748b;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #128c4b;
+
+  --radius-card: 14px;
+  --radius-panel: 24px;
+  --shadow-card: 0 4px 12px rgb(0 0 0 / 0.05);
+  --shadow-raised: 0 10px 25px rgb(0 0 0 / 0.08);
+  --shadow-modal: 0 20px 40px rgb(0 0 0 / 0.15);
 }
 
-body {
-  background: #ffffff;
-  color: #1c1917;
-  font-family: var(--font-inter), system-ui, sans-serif;
+@theme inline {
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+  --font-display: var(--font-fredoka), var(--font-jakarta), system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-lb-bg);
+    color: var(--color-lb-ink);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-lb-blue);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

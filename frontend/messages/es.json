@@ -1,0 +1,370 @@
+{
+  "meta": {
+    "siteName": "Inmobiliaria La Blanca",
+    "logoAlt": "Inmobiliaria La Blanca – Ciudad del Este",
+    "defaultTitle": "Casas, departamentos y terrenos en Ciudad del Este",
+    "defaultDescription": "Inmobiliaria La Blanca: venta y alquiler de casas, departamentos y terrenos en Ciudad del Este, Hernandarias y Alto Paraná.",
+    "catalogDescription": "Casas, departamentos y terrenos en venta y alquiler en Ciudad del Este, Hernandarias y Alto Paraná. Filtrá por zona, precio y habitaciones.",
+    "aboutDescription": "Conocé Inmobiliaria La Blanca: venta y alquiler de inmuebles en Ciudad del Este y Alto Paraná con atención personal y transparente.",
+    "contactDescription": "Contactá a Inmobiliaria La Blanca por WhatsApp, teléfono o correo. Atención en Ciudad del Este, Hernandarias y Alto Paraná.",
+    "faqDescription": "Respuestas sobre compra, alquiler, visitas, monedas y publicación de inmuebles con Inmobiliaria La Blanca en Ciudad del Este.",
+    "privacyDescription": "Cómo Inmobiliaria La Blanca recoge, usa y protege los datos personales enviados por este sitio.",
+    "zoneDescription": "Inmuebles en venta y alquiler en {zone}, {city}. Casas, departamentos y terrenos seleccionados por Inmobiliaria La Blanca.",
+    "homeTitle": "Inmobiliaria La Blanca – Inmuebles en Ciudad del Este"
+  },
+  "nav": {
+    "home": "Inicio",
+    "properties": "Inmuebles",
+    "map": "Ubicaciones",
+    "about": "Nosotros",
+    "simulator": "Simulador",
+    "contact": "Contacto",
+    "faq": "Preguntas frecuentes",
+    "privacy": "Política de privacidad",
+    "vipContact": "Contacto VIP",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "mainLabel": "Navegación principal",
+    "skipToContent": "Saltar al contenido",
+    "breadcrumb": "Ruta de navegación"
+  },
+  "topbar": {
+    "login": "Ingresar",
+    "publishProperty": "Publicar mi inmueble",
+    "language": "Idioma",
+    "currency": "Moneda"
+  },
+  "languages": {
+    "es": "Español",
+    "pt": "Português",
+    "en": "English",
+    "gn": "Avañe'ẽ"
+  },
+  "currency": {
+    "notice": "Conversión aproximada con la cotización del {date}.",
+    "perMonth": "/ mes"
+  },
+  "common": {
+    "loading": "Cargando…",
+    "close": "Cerrar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "search": "Buscar",
+    "clear": "Limpiar",
+    "retry": "Intentar de nuevo",
+    "seeAll": "Ver todas",
+    "back": "Volver",
+    "optional": "opcional",
+    "genericError": "No pudimos completar la operación. Inténtelo de nuevo."
+  },
+  "login": {
+    "title": "Acceso administrativo",
+    "subtitle": "Solo para el equipo de La Blanca.",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "submit": "Ingresar",
+    "submitting": "Ingresando…",
+    "sessionExpired": "Su sesión expiró. Ingrese de nuevo."
+  },
+  "footer": {
+    "description": "Tu aliado de confianza en el mercado inmobiliario de Ciudad del Este y Alto Paraná.",
+    "navigation": "Navegación",
+    "zones": "Zonas",
+    "contact": "Contacto",
+    "rights": "Todos los derechos reservados."
+  },
+  "whatsapp": {
+    "label": "Hablar por WhatsApp",
+    "defaultMessage": "Hola, quisiera recibir más información sobre sus propiedades.",
+    "propertyMessage": "Hola, me interesa el inmueble \"{title}\" ({url})."
+  },
+  "errors": {
+    "notFoundTitle": "Página no encontrada",
+    "notFoundText": "La página que busca no existe o ya no está disponible.",
+    "goHome": "Ir al inicio",
+    "suggestions": "Algunas opciones que pueden interesarte"
+  },
+  "home": {
+    "heroTitle": "Encontrá tu nuevo hogar en La Blanca",
+    "heroSubtitle": "Tu aliado de confianza en el mercado inmobiliario de Ciudad del Este y Alto Paraná.",
+    "seeProperties": "Ver propiedades",
+    "simulate": "Simular cuotas",
+    "whatsappDoubts": "Dudas por WhatsApp",
+    "featuredBadge": "Destacado del mes",
+    "catalogTag": "Catálogo exclusivo",
+    "featuredTitle": "Propiedades destacadas",
+    "emptyTitle": "Estamos actualizando nuestro catálogo",
+    "emptyText": "Contanos qué buscás y te enviamos opciones antes de publicarlas.",
+    "mapTag": "Mapa de propiedades",
+    "mapTitle": "Ubicaciones disponibles para venta y alquiler",
+    "mapLegend": "Solo inmuebles de La Blanca",
+    "mapLoading": "Cargando mapa…",
+    "aboutTag": "Tradición y transparencia",
+    "aboutTitle": "La inmobiliaria de referencia en Alto Paraná.",
+    "aboutText": "Combinamos asesoría especializada, discreción absoluta y un portafolio seleccionado en Ciudad del Este, Hernandarias y alrededores.",
+    "stat1Value": "+12",
+    "stat1Label": "años de mercado",
+    "stat2Value": "+500",
+    "stat2Label": "familias atendidas",
+    "stat3Value": "99%",
+    "stat3Label": "clientes satisfechos",
+    "faqTitle": "Preguntas frecuentes",
+    "faqMore": "Ver todas las preguntas",
+    "emptyCta": "Hablar con un asesor",
+    "featuredFallback": "Nuevas oportunidades cada semana",
+    "aboutCta": "Conocé La Blanca"
+  },
+  "search": {
+    "buy": "Comprar",
+    "rent": "Alquilar",
+    "type": "Tipo de inmueble",
+    "anyType": "Todos los tipos",
+    "zone": "Ciudad / barrio",
+    "anyZone": "Todas las ubicaciones",
+    "price": "Rango de precio",
+    "anyPrice": "Cualquier valor",
+    "upTo": "Hasta {value}",
+    "between": "{min} a {max}",
+    "over": "Más de {value}",
+    "bedrooms": "Habitaciones",
+    "anyBedrooms": "Cualquier cantidad",
+    "bedroomsMin": "{count}+ habitaciones",
+    "text": "Palabra clave",
+    "submit": "Buscar"
+  },
+  "catalog": {
+    "title": "Inmuebles en venta y alquiler",
+    "titleSale": "Inmuebles en venta",
+    "titleRent": "Inmuebles en alquiler",
+    "results": "{count, plural, =0 {Ningún inmueble} one {# inmueble} other {# inmuebles}}",
+    "sort": "Ordenar",
+    "sortRecent": "Más recientes",
+    "sortPriceAsc": "Menor precio",
+    "sortPriceDesc": "Mayor precio",
+    "emptyTitle": "No encontramos inmuebles con estos filtros",
+    "emptyText": "Probá limpiar los filtros o escribinos por WhatsApp: te ayudamos a encontrar la opción ideal.",
+    "clearFilters": "Limpiar filtros",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "page": "Página {page} de {pages}",
+    "heading": "{type, select, House {Casas} Apartment {Departamentos} Land {Terrenos} Commercial {Inmuebles comerciales} other {Inmuebles}} {operation, select, Sale {en venta} Rent {en alquiler} other {en venta y alquiler}}",
+    "inZone": "{title} en {zone}",
+    "searchFor": "Resultados para «{q}»",
+    "filters": "Filtrar búsqueda"
+  },
+  "property": {
+    "details": "Ver detalles",
+    "operation": {
+      "Sale": "Venta",
+      "Rent": "Alquiler"
+    },
+    "type": {
+      "House": "Casa",
+      "Apartment": "Departamento",
+      "Land": "Terreno",
+      "Commercial": "Comercial",
+      "Other": "Otro"
+    },
+    "status": {
+      "Reserved": "Reservado"
+    },
+    "bedrooms": "{count, plural, one {# hab.} other {# hab.}}",
+    "bathrooms": "{count, plural, one {# baño} other {# baños}}",
+    "area": "{value} m²",
+    "factBedrooms": "Habitaciones",
+    "factBathrooms": "Baños",
+    "factBuilt": "Área construida",
+    "factLot": "Terreno",
+    "factParking": "Cocheras",
+    "factZone": "Zona",
+    "description": "Descripción",
+    "features": "Características",
+    "video": "Video",
+    "playVideo": "Reproducir video",
+    "location": "Ubicación",
+    "locationNote": "Ubicación aproximada.",
+    "whatsapp": "Consultar por WhatsApp",
+    "requestVisit": "Solicitar visita",
+    "similar": "Inmuebles similares",
+    "gallery": "Galería de fotos",
+    "photo": "Foto {index}",
+    "summary": "{type} en {operation, select, Sale {venta} other {alquiler}} en {place}, por {price}{area, select, none {} other {, con {area} m² construidos}}{bedrooms, select, none {} other {, {bedrooms} habitaciones}}.",
+    "notFoundTitle": "Este inmueble ya no está disponible",
+    "notFoundText": "Mirá otras opciones que pueden interesarte.",
+    "facts": "Datos del inmueble",
+    "backToCatalog": "Volver a los inmuebles",
+    "visitIntro": "Dejá tus datos y te confirmamos el día y el horario.",
+    "otherOptions": "Otras opciones para vos",
+    "uploadedVideo": "Video del inmueble",
+    "previousPhoto": "Foto anterior",
+    "nextPhoto": "Foto siguiente"
+  },
+  "simulator": {
+    "tag": "Herramienta La Blanca",
+    "title": "Simulá tu cuota mensual",
+    "text": "Calculá la financiación de tu casa o terreno en dólares, guaraníes o reales.",
+    "value": "Valor del inmueble ({currency})",
+    "years": "Plazo",
+    "yearsOption": "{count} años",
+    "result": "Cuota estimada por mes",
+    "disclaimer": "Estimación con tasa anual de {rate}% (sistema francés). No es una oferta de crédito."
+  },
+  "forms": {
+    "name": "Nombre completo",
+    "phone": "WhatsApp / teléfono",
+    "email": "Correo electrónico",
+    "message": "Mensaje",
+    "consent": "Autorizo a La Blanca a contactarme y acepto la <link>política de privacidad</link>.",
+    "submit": "Enviar",
+    "sending": "Enviando…",
+    "required": "Campo obligatorio.",
+    "invalidEmail": "Correo electrónico inválido.",
+    "invalidPhone": "Ingresá un teléfono con al menos 8 dígitos.",
+    "consentRequired": "Necesitamos tu autorización para contactarte.",
+    "contactTitle": "Atención personalizada",
+    "contactHeading": "Contacto VIP",
+    "contactSuccess": "¡Solicitud enviada! Te contactaremos pronto.",
+    "visitTitle": "Agendá una visita",
+    "visitSuccess": "¡Pedido de visita enviado! Te confirmaremos el horario.",
+    "ownerTag": "Área del propietario",
+    "ownerTitle": "Ofrecé tu inmueble en venta o alquiler",
+    "ownerSuccess": "¡Propuesta enviada! Nuestro equipo se pondrá en contacto.",
+    "newsletterTitle": "Novedades exclusivas",
+    "newsletterText": "Recibí oportunidades antes de que se publiquen.",
+    "newsletterSubmit": "Suscribirme",
+    "newsletterSuccess": "¡Gracias por suscribirte!",
+    "honeypot": "No completar"
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "intro": "Respuestas rápidas sobre compra, alquiler y publicación de inmuebles con La Blanca.",
+    "items": {
+      "zones": {
+        "q": "¿En qué zonas trabaja La Blanca?",
+        "a": "Trabajamos con inmuebles en Ciudad del Este, Hernandarias y alrededores en Alto Paraná, incluidas zonas como Paraná Country Club, Centro, Área 1 y Km 8 a Km 10."
+      },
+      "currency": {
+        "q": "¿En qué moneda se muestran los precios?",
+        "a": "Cada inmueble se publica en su moneda original, generalmente en dólares. Con el selector de moneda podés ver una conversión aproximada a guaraníes o reales; el valor final es el acordado en el contrato."
+      },
+      "visit": {
+        "q": "¿Cómo agendo una visita?",
+        "a": "En la página de cada inmueble podés enviar un pedido de visita o escribirnos por WhatsApp. Un asesor confirma con vos el día y el horario."
+      },
+      "publish": {
+        "q": "¿Cómo ofrezco mi inmueble para venta o alquiler?",
+        "a": "Tocá «Publicar mi inmueble», dejá tu nombre y tu WhatsApp y nuestro equipo te contacta para evaluar el inmueble y definir las condiciones."
+      },
+      "simulator": {
+        "q": "¿El simulador de cuotas es una oferta de crédito?",
+        "a": "No. Es una estimación por el sistema francés con una tasa de referencia. Las condiciones reales dependen de la entidad financiera."
+      },
+      "foreign": {
+        "q": "¿Atienden a compradores de Brasil y de otros países?",
+        "a": "Sí. El sitio está en español, portugués, inglés y guaraní, y los precios se pueden ver en dólares, guaraníes o reales. Te orientamos sobre la documentación necesaria en cada caso."
+      }
+    },
+    "contactTitle": "¿No encontraste tu respuesta?",
+    "contactText": "Escribinos y te respondemos a la brevedad."
+  },
+  "about": {
+    "title": "Sobre Inmobiliaria La Blanca",
+    "lead": "Somos una inmobiliaria de Ciudad del Este dedicada a la venta y el alquiler de casas, departamentos y terrenos en Alto Paraná.",
+    "storyTitle": "Nuestra forma de trabajar",
+    "storyText": "Acompañamos cada operación de principio a fin: evaluamos el inmueble, preparamos el anuncio, mostramos la propiedad y asistimos en la negociación y la documentación, con atención personal y transparente.",
+    "valuesTitle": "Lo que nos define",
+    "values": {
+      "transparency": {
+        "title": "Transparencia",
+        "text": "Información clara sobre precios, condiciones y documentos en cada etapa."
+      },
+      "local": {
+        "title": "Conocimiento local",
+        "text": "Conocemos los barrios de Ciudad del Este, Hernandarias y alrededores."
+      },
+      "service": {
+        "title": "Atención personal",
+        "text": "Un asesor te acompaña por WhatsApp, por teléfono o en persona."
+      }
+    },
+    "ctaTitle": "¿Buscás un inmueble o querés vender el tuyo?",
+    "ctaText": "Hablá con nuestro equipo y recibí opciones a tu medida.",
+    "ctaProperties": "Ver inmuebles",
+    "ctaContact": "Contactar"
+  },
+  "contact": {
+    "title": "Contacto",
+    "lead": "Hablá con un asesor de La Blanca por WhatsApp, teléfono, correo o con el formulario.",
+    "channels": "Canales de atención",
+    "phone": "Teléfono",
+    "whatsapp": "WhatsApp",
+    "email": "Correo electrónico",
+    "address": "Dirección",
+    "hours": "Horario de atención",
+    "social": "Redes sociales",
+    "formTitle": "Envianos un mensaje",
+    "mapTitle": "Cómo llegar",
+    "noChannels": "Los datos de contacto se publicarán en breve. Mientras tanto, usá el formulario."
+  },
+  "privacy": {
+    "title": "Política de privacidad",
+    "updated": "Última actualización: {date}",
+    "intro": "Esta política explica qué datos personales recoge Inmobiliaria La Blanca en este sitio, para qué los usa y cómo podés ejercer tus derechos.",
+    "sections": {
+      "data": {
+        "title": "Qué datos recogemos",
+        "text": "Solo los datos que nos enviás en los formularios: nombre, teléfono o WhatsApp, correo electrónico (cuando lo informás), el mensaje y el inmueble de interés."
+      },
+      "use": {
+        "title": "Para qué los usamos",
+        "text": "Para responder tus consultas, coordinar visitas, evaluar propuestas de propietarios y, si te suscribiste, enviarte novedades de inmuebles. No vendemos ni cedemos tus datos."
+      },
+      "analytics": {
+        "title": "Estadísticas anónimas",
+        "text": "Medimos las visitas de forma anónima, sin cookies de seguimiento y sin guardar tu dirección IP ni los datos de tu navegador. Usamos un identificador temporal que se borra al cerrar la pestaña, y la moneda elegida queda guardada solo en tu navegador."
+      },
+      "sharing": {
+        "title": "Con quién compartimos",
+        "text": "Tus datos son tratados por el equipo de La Blanca y por los proveedores de infraestructura que alojan el sitio, bajo obligación de confidencialidad."
+      },
+      "retention": {
+        "title": "Por cuánto tiempo",
+        "text": "Conservamos los datos de contacto mientras dure la atención y por el tiempo necesario para cumplir obligaciones legales. Las estadísticas anónimas se eliminan después de 13 meses."
+      },
+      "rights": {
+        "title": "Tus derechos",
+        "text": "Podés pedir acceso, corrección o eliminación de tus datos, o dejar de recibir novedades, escribiéndonos por los canales de contacto."
+      },
+      "contact": {
+        "title": "Contacto",
+        "text": "Para cualquier consulta sobre privacidad, usá la página de contacto o escribinos por WhatsApp."
+      }
+    }
+  },
+  "zone": {
+    "tag": "Zona",
+    "title": "Inmuebles en {zone}",
+    "summary": "{count, plural, =0 {Por el momento no hay inmuebles publicados} one {Hay # inmueble publicado} other {Hay # inmuebles publicados}} en {zone}, {city}, Alto Paraná.",
+    "listTitle": "Inmuebles disponibles",
+    "emptyText": "Contanos qué buscás en {zone} y te avisamos cuando haya opciones.",
+    "mapTitle": "Mapa de {zone}",
+    "faqTitle": "Preguntas sobre {zone}",
+    "faq": {
+      "where": {
+        "q": "¿Dónde queda {zone}?",
+        "a": "{zone} está en {city}, en el departamento de Alto Paraná, Paraguay."
+      },
+      "available": {
+        "q": "¿Qué inmuebles hay en {zone}?",
+        "a": "{count, plural, =0 {Ahora no hay inmuebles publicados en {zone}, pero podemos avisarte cuando haya.} one {Hay # inmueble publicado en {zone}, listado en esta página.} other {Hay # inmuebles publicados en {zone}, listados en esta página.}}"
+      },
+      "visit": {
+        "q": "¿Cómo visito un inmueble en {zone}?",
+        "a": "Elegí el inmueble y enviá un pedido de visita o escribinos por WhatsApp; coordinamos día y horario con vos."
+      }
+    },
+    "otherZones": "Otras zonas"
+  }
+}
