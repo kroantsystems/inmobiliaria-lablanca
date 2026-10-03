@@ -93,9 +93,10 @@ app.Use((context, next) =>
 
 // Antes do tratamento de erros: a cultura definida aqui precisa valer para as respostas de erro.
 app.UseRequestLocalization();
+// Fora do tratamento de erros para registrar o status final (ex.: 404), não um 500 da exceção ainda não tratada.
+app.UseSerilogRequestLogging();
 app.UseExceptionHandler();
 app.UseStatusCodePages();
-app.UseSerilogRequestLogging();
 
 if (app.Environment.IsDevelopment())
 {
